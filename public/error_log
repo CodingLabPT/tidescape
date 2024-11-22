@@ -1,0 +1,2 @@
+[13-Sep-2024 15:36:46 UTC] PHP Fatal error:  Cannot use Illuminate\Mail\Mailables\Address as Address because the name is already in use in /home/tidescape/public_html/app/Mail/Register.php on line 12
+[22-Oct-2024 14:37:18 UTC] PHP Fatal error:  Cannot redeclare App\Mail\ContactResponse::$resp_obtida_em in /home/tidescape/public_html/app/Mail/ContactResponse.php on line 25

@@ -1,0 +1,36 @@
+<?php
+
+return [
+    "title" => "Lista de Mensagens",
+    'export' => 'Exportar Dados',
+    'no_messajes' => 'Não há mensagens disponíveis no momento.',
+    'name' => 'Nome',
+    'phone' => 'Telefone',
+    'boat' => 'Barco desejado',
+    'day' => 'Dia / Hora',
+    'status' => 'Estado',
+    'opt' => 'Opções',
+    'small' => 'Pequeno',
+    'big' => 'Grande',
+    'large' => 'Enorme',
+    'details' => 'Detalhes',
+    'delete' => 'Apagar',
+    'pending' => 'Pendente',
+    'waiting' => 'Aguardando',
+    'active' => 'Ativo',
+    'reserve_detail' => 'Detalhes da Reserva',
+    'delete_reserve' => 'Apagar',
+    'solved' => 'Resolvido',
+    'message' => 'Mensagem',
+    'details_of_contact' => 'Detalhes do Contato',
+
+    'response' => 'Resposta',
+    'send' => 'Enviar',
+    'type_text_here' => 'Digite o texto aqui',
+
+    'email' => "E-mail",
+    'validate' => 'Validar',
+    'go_back' => 'Voltar',
+    'are_you_sure_to_delete' => 'Tem certeza de que deseja apagar?',
+    'send_success' => 'Mensagem enviada com sucesso!',
+];

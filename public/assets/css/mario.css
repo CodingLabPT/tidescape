@@ -1,0 +1,24 @@
+/* HOME BRANDS SECTION
+*/
+
+.brand-area {
+    padding-top: 50;
+    padding-bottom: 100px;
+}
+
+.brand-area .container .row #container {
+    display: flex;
+    justify-content: space-evenly;
+}
+    
+.single-brand {
+padding: 10px;
+text-align: center;
+}
+
+.single-brand-thumb img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+

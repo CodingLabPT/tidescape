@@ -1,0 +1,7 @@
+<?php
+
+return[
+
+    'title' => 'Calendário',
+
+];

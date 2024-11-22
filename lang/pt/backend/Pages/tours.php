@@ -1,0 +1,46 @@
+<?php
+
+return [
+    "title" => "Lista de Passeios",
+    'export' => 'Exportar Dados',
+    'no_tours' => 'Não há passeios disponíveis no momento.',
+    'name' => 'Nome',
+    'phone' => 'Telefone',
+    'boat' => 'Barco desejado',
+    'day' => 'Dia / Hora',
+    'status' => 'Estado',
+    'opt' => 'Opções',
+    'small' => 'Pequeno',
+    'big' => 'Grande',
+    'large' => 'Enorme',
+    'details' => 'Detalhes',
+    'delete' => 'Apagar',
+    'pending' => 'Pendente',
+    'waiting' => 'Aguardando',
+    'active' => 'Ativo',
+    'reserve_detail' => 'Detalhes da Reserva',
+    'delete_reserve' => 'Apagar',
+
+    'add' => 'Adicionar',
+    'editing' => 'Edição',
+
+    'small_boat_price' => 'Preço do Barco Pequeno',
+    'big_boat_price' => 'Preço do Barco Grande',
+    'large_boat_price' => 'Preço do Barco Enorme',
+
+    'resaltar' => 'Destacar',
+    'details_of_reserve' => 'Detalhes da Reserva',
+    'tour_name' => 'Nome do Passeio',
+    'local' => 'Localização',
+    'duration' => 'Duração',
+    'email' => "Email",
+    'validate' => 'Validar',
+    'go_back' => 'Voltar',
+
+    'main_image' => 'Imagem Principal',
+    'add_img' => 'Imagem Adicional',
+    'add_img2' => 'Imagem Adicional',
+    'no_image' => 'Sem Imagem',
+    'update' => 'Atualizar',
+    'are_you_sure_to_delete' => 'Tem certeza de que deseja apagar?',
+];

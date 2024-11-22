@@ -1,0 +1,29 @@
+# Laravel
+/vendor
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/.env
+Homestead.yaml
+Homestead.json
+
+# IDEs
+/.idea
+/.vscode
+
+# Logs
+/storage/logs/*.log
+
+# Cache
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# Backup
+*.bak
+*.tmp
+
+# Outros
+.DS_Store
+Thumbs.db

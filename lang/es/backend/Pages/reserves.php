@@ -1,0 +1,36 @@
+<?php
+
+return[
+    "title" => "Lista de Reservas",
+    'export' => 'Exportar datos',
+    'no_tours' => 'No hay reservas disponibles en este momento.',
+    'name' => 'Nombre',
+    'phone' => 'Telefóno',
+    'boat' => 'Barco deseado',
+    'day' => 'Dia / Hora',
+    'Status' => 'Estatus',
+    'opt' => 'Opciones',
+    'small' => 'Pequeño',
+    'big' => 'Grande',
+    'large' => 'Enorme',
+    'details' => 'Detalles',
+    'delete' => 'Borrar',
+    'pending' => 'Pendiente',
+    'waiting' => 'Esperando',
+    'active' => 'Activa',
+    'reserve_detail' => 'Detalles',
+    'delete_reserve' => 'Borrar',
+
+    'details_of_reserve' => 'Detalles de la reserva',
+    'tour_name' => 'Nombre del tour',
+    'local' => 'Lugar',
+    'duration' => 'Duratión',
+    'email' => "Correo electrónico",
+    'validate' => 'Validar',
+    'go_back' => 'Volver',
+    'are_you_sure_to_delete' => '¿Estás seguro de borrar?',
+    'turn_active' => 'La reserva ahora está activa!',
+    'turn_waiting' => '¡La reserva ha sido creada y está esperando la confirmación del administrador!',
+    'error_creating' => '¡Error al crear la reserva. El tour que deseas no tiene el tipo de barco que elegiste!',
+
+];
