@@ -28,11 +28,9 @@ Route::get('/localization/{locale}', LocalizationController::class)->name('local
 
 Route::middleware(Localization::class)->group(function(){
 
-
     Route::get('/', [FrontEndController::class, 'home'])->name('home');
     Route::post('/cadastrarContact', [ContactController::class, 'store'])->name('store.contact');
     Route::post('/cadastrarNewsletter', [NewsletterController::class, 'store'])->name('store.newsletter');
-
 
     /**
      * Property
@@ -212,6 +210,10 @@ Route::middleware(Localization::class)->group(function(){
     /*
     Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
     Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login');
+    */
+
+    /*
+    testando
     */
 
 });
