@@ -212,10 +212,6 @@ Route::middleware(Localization::class)->group(function(){
     Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login');
     */
 
-    /*
-    testando
-    */
-
 });
 
 
