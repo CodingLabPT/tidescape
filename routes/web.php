@@ -24,6 +24,8 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\UserController;
 
+/* teste */
+
 Route::get('/localization/{locale}', LocalizationController::class)->name('localization');
 
 Route::middleware(Localization::class)->group(function(){
