@@ -104,7 +104,7 @@
                         <p>{{ __('backend/Pages/durations.editing') }} <em>{{ $duration->name }}</em></p>
                     </div>
                     <br><br>
-                    <form method="POST" action="/updateDuration/{{ $duration->id }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('durations.update', $duration->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="container">

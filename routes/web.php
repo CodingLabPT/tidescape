@@ -129,12 +129,12 @@ Route::middleware(Localization::class)->group(function(){
 
         /* TOURS
         */
-        Route::post('/cadastrarTour', [TourController::class, 'store'])->name('tour.store');
-        Route::get('/admin/dashboard/tours', [TourController::class, 'show'])->name('admin.dashboard.tours');
-        Route::get('/admin/dashboard/tours/add', [TourController::class, 'create'])->name('admin.dashboard.addTour');
-        Route::get('/admin/dashboard/tours/delete/{id}', [TourController::class, 'delete'])->name('admin.dashboard.tourDelete');
-        Route::get('/admin/dashboard/tours/edit/{id}', [TourController::class, 'details'])->name('admin.dashboard.tourShow');
-        Route::put('/updateTour/{id}', [TourController::class, 'edit'])->name('update.tour');
+        Route::get('/tours', [TourController::class, 'show'])->name('tours.show');
+        Route::get('tours/create', [TourController::class, 'create'])->name('tours.create');
+        Route::post('tours/store', [TourController::class, 'store'])->name('tours.store');
+        Route::get('tours/delete/{tour}', [TourController::class, 'delete'])->name('tours.destroy');
+        Route::get('tours/details/{tour}', [TourController::class, 'details'])->name('tours.details');
+        Route::put('/tours/update/{tour}', [TourController::class, 'edit'])->name('tours.update');
 
         /* CONTACTS
         */
@@ -143,30 +143,30 @@ Route::middleware(Localization::class)->group(function(){
 
         /* LOCALS
         */
-        Route::post('/cadastrarLocal', [LocalController::class, 'store']);
-        Route::get('/admin/dashboard/locals', [LocalController::class, 'show'])->name('admin.dashboard.locals');
-        Route::get('/admin/dashboard/locals/add', [LocalController::class, 'create'])->name('admin.dashboard.addLocal');
-        Route::get('/admin/dashboard/locals/delete/{id}', [LocalController::class, 'delete'])->name('admin.dashboard.localDelete');
-        Route::get('/admin/dashboard/locals/edit/{id}', [LocalController::class, 'details'])->name('admin.dashboard.localShow');
-        Route::put('/updateLocal/{id}', [LocalController::class, 'edit']);
+        Route::get('/locals', [LocalController::class, 'show'])->name('locals.show');
+        Route::get('locals/create', [LocalController::class, 'create'])->name('locals.create');
+        Route::post('locals/store', [LocalController::class, 'store'])->name('locals.store');
+        Route::get('locals/delete/{local}', [LocalController::class, 'delete'])->name('locals.destroy');
+        Route::get('locals/details/{local}', [LocalController::class, 'details'])->name('locals.details');
+        Route::put('/locals/update/{locals}', [LocalController::class, 'edit'])->name('locals.update');
 
         /* DURATIONS
         */
-        Route::post('/cadastrarDuration', [DurationController::class, 'store']);
-        Route::get('/admin/dashboard/durations', [DurationController::class, 'show'])->name('admin.dashboard.durations');
-        Route::get('/admin/dashboard/durations/add', [DurationController::class, 'create'])->name('admin.dashboard.addDuration');
-        Route::get('/admin/dashboard/durations/delete/{id}', [DurationController::class, 'delete'])->name('admin.dashboard.durationDelete');
-        Route::get('/admin/dashboard/durations/edit/{id}', [DurationController::class, 'details'])->name('admin.dashboard.durationShow');
-        Route::put('/updateDuration/{id}', [DurationController::class, 'edit']);
+        Route::get('/durations', [DurationController::class, 'show'])->name('durations.show');
+        Route::get('durations/create', [DurationController::class, 'create'])->name('durations.create');
+        Route::post('durations/store', [DurationController::class, 'store'])->name('durations.store');
+        Route::get('durations/delete/{duration}', [DurationController::class, 'delete'])->name('durations.destroy');
+        Route::get('durations/details/{duration}', [DurationController::class, 'details'])->name('durations.details');
+        Route::put('/duration/update/{duration}', [DurationController::class, 'edit'])->name('durations.update');
 
         /* MANAGEMENT BOATS
         */
-        Route::post('/cadastrarBoat', [VesselController::class, 'store'])->name('boat.store');
-        Route::get('/admin/dashboard/configs', [VesselController::class, 'show'])->name('admin.dashboard.configs');
-        Route::get('/admin/dashboard/configs/add', [VesselController::class, 'create'])->name('admin.dashboard.addBoat');
-        Route::get('/admin/dashboard/configs/delete/{id}', [VesselController::class, 'delete'])->name('admin.dashboard.boatDelete');
-        Route::get('/admin/dashboard/configs/edit/{id}', [VesselController::class, 'details'])->name('admin.dashboard.boatShow');
-        Route::put('/updateBoat/{id}', [VesselController::class, 'edit']);
+        Route::get('/boats', [VesselController::class, 'show'])->name('boats.show');
+        Route::get('boats/create', [VesselController::class, 'create'])->name('boats.create');
+        Route::post('boats/store', [VesselController::class, 'store'])->name('boats.store');
+        Route::get('boats/delete/{boat}', [VesselController::class, 'delete'])->name('boats.destroy');
+        Route::get('boats/details/{boat}', [VesselController::class, 'details'])->name('boats.details');
+        Route::put('boats/update/{boat}', [VesselController::class, 'edit'])->name('boats.update');
 
 
         /* BRANDS

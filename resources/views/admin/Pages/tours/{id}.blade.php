@@ -115,7 +115,7 @@
                         <p>{{ GoogleTranslate::trans('Editar', app()->getLocale()) }}  <strong><em>{{ $tour->name }}</em></strong> </p>
                     </div>
                     <br><br>
-                    <form method="POST" action="{{ route('update.tour', ['id' => $tour->id]) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('tours.update', $tour->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                         <table class="table">

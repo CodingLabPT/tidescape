@@ -132,7 +132,7 @@
                         <p>{{ __('backend/Pages/addBoatForm.title') }}</p>
                     </div>
                     <br>
-                    <form method="POST" action="{{ route('boat.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('boats.store') }}" enctype="multipart/form-data">
                         @csrf
                         <fieldset class="border border-gray-300 p-6 mb-6 rounded-lg">
                             <!-- Campo de Upload de Foto de Perfil -->

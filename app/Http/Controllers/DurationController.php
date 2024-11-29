@@ -16,7 +16,7 @@ class DurationController extends Controller
         $duration = new Duration;
         $duration->name = $request->name;
         $duration->save();
-        return redirect()->route('admin.dashboard.durations')->with('success', __('backend/Pages/admins.duration_create'));
+        return redirect()->route('durations.show')->with('success', __('backend/Pages/admins.duration_create'));
     }
 
     public function show() {
@@ -29,7 +29,7 @@ class DurationController extends Controller
 
     public function delete($id) {
         Duration::destroy($id);
-        return redirect()->back()->with('success', __('backend/Pages/admins.duration_delete'));
+        return redirect()->route('durations.show')->with('success', __('backend/Pages/admins.duration_delete'));
     }
 
     public function details($id) {
@@ -45,7 +45,7 @@ class DurationController extends Controller
 
         $duration->save();
 
-        return redirect()->route('admin.dashboard.durations')->with('success', __('backend/Pages/admins.duration_update'));
+        return redirect()->route('durations.show')->with('success', __('backend/Pages/admins.duration_update'));
     }
 
 

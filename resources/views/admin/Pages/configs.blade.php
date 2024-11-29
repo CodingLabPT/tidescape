@@ -123,7 +123,7 @@
                 <div class="dashboard-right-contents mt-4 mt-lg-0" style="border-radius:5px">
                     <div class="breadcrumb-contents">
                         <p>{{ __('backend/Pages/configs.title') }}</p>
-                        <a href="{{ url('/admin/dashboard/configs/add') }}"><i title="{{ __('backend/Pages/configs.title') }}" style="font-size: 30px" class="las la-plus-circle"></i></a>
+                        <a href="{{ route('boats.create') }}"><i title="{{ __('backend/Pages/configs.title') }}" style="font-size: 30px" class="las la-plus-circle"></i></a>
                     </div>
                     <br><br>
                     @if (count($boats) == 0)
@@ -150,10 +150,10 @@
                                         <td><img style="width:100px; height:50px; background-size: cover" src="{{ asset($boat->img2) }}"></td>
                                         <td><img style="width:100px; height:50px; background-size: cover" src="{{ asset($boat->img3) }}"></td>
                                         <td>
-                                            <a title="{{ __('backend/Pages/locals.details') }}" href="/admin/dashboard/configs/edit/{{ $boat->id }}" class="btn btn-warning btn-sm">
+                                            <a title="{{ __('backend/Pages/locals.details') }}" href="{{ route('boats.details', $boat->id) }}" class="btn btn-warning btn-sm">
                                                 <i class="fas fa-info-circle"></i> {{ __('backend/Pages/locals.details') }}
                                             </a>
-                                            <a title="Delete Boat" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="/admin/dashboard/configs/delete/{{ $boat->id }}"><i class="fas fa-trash-alt"></i> {{ __('backend/Pages/durations.delete') }}</a>
+                                            <a title="Delete Boat" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="{{ route('boats.destroy', $boat->id) }}"><i class="fas fa-trash-alt"></i> {{ __('backend/Pages/durations.delete') }}</a>
                                         </td>
                                     </tr>
                                     @endforeach

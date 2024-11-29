@@ -94,7 +94,7 @@ input, textarea, select, fieldset, button {
                     <div class="container mt-4">
                         <div class="card" style="border-radius: 5px;">
                             <div class="card-body">
-                                <form method="POST" action="/cadastrarLocal">
+                                <form method="POST" action="{{ route('locals.store') }}">
                                     @csrf
                                     <div class="form-group mb-3">
                                         <input placeholder="{{ __('backend/Pages/addLocalForm.name_placeholder') }}" type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" required>

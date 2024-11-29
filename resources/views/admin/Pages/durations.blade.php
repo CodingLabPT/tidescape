@@ -90,7 +90,7 @@
             <div class="dashboard-right-contents mt-4 mt-lg-0" style="border-radius:5px">
                 <div class="breadcrumb-contents">
                     <p>{{ __('backend/Pages/durations.title') }}</p>
-                    <a href="{{ route('admin.dashboard.addDuration') }}"><i title="Add Duration" style="font-size: 30px" class="las la-plus-circle"></i></a>
+                    <a href="{{ route('durations.create') }}"><i title="Add Duration" style="font-size: 30px" class="las la-plus-circle"></i></a>
                 </div>
                 <br><br>
                 @if (count($durations) == 0)
@@ -110,10 +110,10 @@
                             <tr>
                                 <td>{{ $duration->name }}</td>
                                 <td style="text-align: right">
-                                    <a title="{{ __('backend/Pages/durations.details') }}" class="btn btn-warning btn-sm" href="/admin/dashboard/durations/edit/{{ $duration->id }}">
+                                    <a title="{{ __('backend/Pages/durations.details') }}" class="btn btn-warning btn-sm" href="{{ route('durations.details', $duration->id) }}">
                                         <i class="fas fa-info-circle"></i> {{ __('backend/Pages/durations.details') }}
                                     </a>
-                                    <a title="{{ __('backend/Pages/durations.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ __('backend/Pages/durations.are_you_sure_to_delete') }}')" href="/admin/dashboard/durations/delete/{{ $duration->id }}">
+                                    <a title="{{ __('backend/Pages/durations.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ __('backend/Pages/durations.are_you_sure_to_delete') }}')" href="{{ route('durations.destroy', $duration->id) }}">
                                         <i class="fas fa-trash-alt"></i> {{ __('backend/Pages/durations.delete') }}
                                     </a>
                                 </td>

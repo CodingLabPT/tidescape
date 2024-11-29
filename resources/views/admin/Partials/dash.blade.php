@@ -112,13 +112,13 @@
                         <h6 style="display:block; text-align:left; padding: 2px 15px; font-size: 16px; font-weight:bold" href="/dashboard"><i class="fas fa-route"></i> {{ __('backend/sidebar.Tours') }} </h6>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/tours') {
+                        if ($actual_link === 'https://tidescape.pt/tours') {
                         ?>
-                        <h6> <a class="active" href="{{ route('admin.dashboard.tours') }}"><i class="fas fa-route"></i> {{ __('backend/sidebar.Tours2') }}</a> </h6>
+                        <h6> <a class="active" href="{{ route('tours.show') }}"><i class="fas fa-route"></i> {{ __('backend/sidebar.Tours2') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('admin.dashboard.tours') }}"><i class="fas fa-route"></i> {{ __('backend/sidebar.Tours2') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('tours.show') }}"><i class="fas fa-route"></i> {{ __('backend/sidebar.Tours2') }}</a> </h6>
                         <?php
                         }
                         ?>
@@ -129,37 +129,37 @@
                     <li class="">
                         <h6 style="display:block; text-align:left; padding: 2px 15px; font-size: 16px; font-weight:bold" href="#"><i class="fas fa-list"></i> {{ __('backend/sidebar.Categories') }} </h6>
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/locals') {
+                        if ($actual_link === 'https://tidescape.pt/locals') {
                         ?>
-                        <h6> <a class="active" href="{{ route('admin.dashboard.locals') }}"><i class="fas fa-map-marker-alt"></i> {{ __('backend/sidebar.Local') }}</a> </h6>
+                        <h6> <a class="active" href="{{ route('locals.show') }}"><i class="fas fa-map-marker-alt"></i> {{ __('backend/sidebar.Local') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('admin.dashboard.locals') }}"><i class="fas fa-map-marker-alt"></i> {{ __('backend/sidebar.Local') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('locals.show') }}"><i class="fas fa-map-marker-alt"></i> {{ __('backend/sidebar.Local') }}</a> </h6>
                         <?php
                         }
                         ?>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/durations') {
+                        if ($actual_link === 'https://tidescape.pt/durations') {
                         ?>
-                        <h6> <a class="active" href="{{ route('admin.dashboard.durations') }}"><i class="fas fa-clock"></i> {{ __('backend/sidebar.Duration') }}</a> </h6>
+                        <h6> <a class="active" href="{{ route('durations.show') }}"><i class="fas fa-clock"></i> {{ __('backend/sidebar.Duration') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('admin.dashboard.durations') }}"><i class="fas fa-clock"></i> {{ __('backend/sidebar.Duration') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('durations.show') }}"><i class="fas fa-clock"></i> {{ __('backend/sidebar.Duration') }}</a> </h6>
                         <?php
                         }
                         ?>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/configs') {
+                        if ($actual_link === 'https://tidescape.pt/boats') {
                         ?>
-                        <h6> <a class="active" href="{{ route('admin.dashboard.configs') }}"><i class="fas fa-tasks"></i> {{ __('backend/sidebar.Management') }}</a> </h6>
+                        <h6> <a class="active" href="{{ route('boats.show') }}"><i class="fas fa-tasks"></i> {{ __('backend/sidebar.Management') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('admin.dashboard.configs') }}"><i class="fas fa-tasks"></i> {{ __('backend/sidebar.Management') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('boats.show') }}"><i class="fas fa-tasks"></i> {{ __('backend/sidebar.Management') }}</a> </h6>
                         <?php
                         }
                         ?>

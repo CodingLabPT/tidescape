@@ -91,7 +91,7 @@
                 <div class="dashboard-right-contents mt-4 mt-lg-0" style="border-radius:5px">
                     <div class="breadcrumb-contents">
                         <p>{{ __('backend/Pages/locals.title') }}</p>
-                        <a href="{{ route('admin.dashboard.addLocal') }}"><i title="Add Local" style="font-size: 30px" class="las la-plus-circle"></i></a>
+                        <a href="{{ route('locals.create') }}"><i title="Add Local" style="font-size: 30px" class="las la-plus-circle"></i></a>
                     </div>
                     <br><br>
                     @if (count($locals) == 0)
@@ -111,10 +111,10 @@
                                 <tr>
                                     <td>{{ $local->name }}</td>
                                     <td style="text-align: right">
-                                        <a title="{{ __('backend/Pages/locals.details') }}" class="btn btn-warning btn-sm" href="/admin/dashboard/locals/edit/{{ $local->id }}">
+                                        <a title="{{ __('backend/Pages/locals.details') }}" class="btn btn-warning btn-sm" href="{{ route('locals.details', $local->id) }}">
                                             <i class="fas fa-info-circle"></i> {{ __('backend/Pages/locals.details') }}
                                         </a>
-                                        <a title="{{ __('backend/Pages/locals.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ __('backend/Pages/locals.are_you_sure_to_delete') }}')" href="/admin/dashboard/locals/delete/{{ $local->id }}">
+                                        <a title="{{ __('backend/Pages/locals.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('{{ __('backend/Pages/locals.are_you_sure_to_delete') }}')" href="{{ route('locals.destroy', $local->id) }}">
                                             <i class="fas fa-trash-alt"></i> {{ __('backend/Pages/locals.delete') }}
                                         </a>
                                     </td>

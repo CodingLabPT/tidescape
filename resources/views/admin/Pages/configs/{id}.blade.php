@@ -104,26 +104,25 @@
                         <p>{{ __('backend/Pages/configs.editing') }} <strong><em>{{ $boat->tipo }}</em></strong></p>
                     </div>
                     <br><br>
-                    <form method="POST" action="/updateBoat/{{ $boat->id }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('boats.update', $boat->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                         <table class="table">
-
                             <div class="mb-3">
-                                <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Nome do tipo de embarcação', app()->getLocale()) }}</span>
-                                <input placeholder="{{ GoogleTranslate::trans('Nome do tipo de embarcação', app()->getLocale()) }}" type="text" value="{{ $boat->tipo }}" class="form-control" id="type" name="type" required>
+                                <span style="font-style: italic; color: #999999">{{ __('backend/Pages/addBoatForm.name') }}</span>
+                                <input placeholder="{{ __('backend/Pages/addBoatForm.name_placeholder') }}" type="text" value="{{ $boat->tipo }}" class="form-control" id="type" name="type" required>
                             </div>
 
                             <div class="mb-3">
-                                <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Descrição tipo de embarcação', app()->getLocale()) }}</span>
-                                <textarea class="form-control" required placeholder="{{ GoogleTranslate::trans('Descrição tipo de embarcação', app()->getLocale()) }}" style="width:100%; padding: 8px;" name="obs" id="obs" cols="20" rows="5">{{ $boat->descricao }}</textarea>
+                                <span style="font-style: italic; color: #999999">{{ __('backend/Pages/addBoatForm.desc') }}</span>
+                                <textarea class="form-control" required placeholder="{{ __('backend/Pages/addBoatForm.desc_placeholder') }}" style="width:100%; padding: 8px;" name="obs" id="obs" cols="20" rows="5">{{ $boat->descricao }}</textarea>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="thumbnail">
                                     <div class="caption">
-                                        <p><em>{{ GoogleTranslate::trans('Imagem principal', app()->getLocale()) }}</em></p>
+                                        <p><em>{{ __('backend/Pages/configs.imag_principal') }}</em></p>
                                         </div>
                                         <img src="<?php echo asset("{$boat->img}")?>" alt="">
                                         <input class="form-control" type="file" id="img" name="img">
@@ -133,7 +132,7 @@
                                 <div class="col-md-4">
                                     <div class="thumbnail">
                                         <div class="caption">
-                                            <p>{{ GoogleTranslate::trans('Imagem adicional', app()->getLocale()) }}</p>
+                                            <p>{{ __('backend/Pages/configs.add_img') }}</p>
                                         </div>
                                         <img src="<?php echo asset("{$boat->img2}")?>" alt="">
                                         <input class="form-control" type="file" id="img2" name="img2">
@@ -143,7 +142,7 @@
                                 <div class="col-md-4">
                                     <div class="thumbnail">
                                         <div class="caption">
-                                            <p>{{ GoogleTranslate::trans('Imagem adicional', app()->getLocale()) }}</p>
+                                            <p>{{ __('backend/Pages/configs.add_img') }}</p>
                                         </div>
                                         <img src="<?php echo asset("{$boat->img3}")?>" alt="">
                                         <input class="form-control" type="file" id="img3" name="img3">

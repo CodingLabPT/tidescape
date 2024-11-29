@@ -28,7 +28,7 @@ class LocalController extends Controller
         $local = new Local;
         $local->name = $request->name;
         $local->save();
-        return redirect()->route('admin.dashboard.locals')->with('success', __('backend/Pages/admins.local_create'));
+        return redirect()->route('locals.show')->with('success', __('backend/Pages/admins.local_create'));
     }
 
     public function show() {
@@ -43,7 +43,7 @@ class LocalController extends Controller
     public function delete($id) {
 
         Local::destroy($id);
-        return redirect()->back()->with('success', __('backend/Pages/admins.local_delete'));
+        return redirect()->route('locals.show')->with('success', __('backend/Pages/admins.local_delete'));
     }
 
     public function details($id) {
@@ -59,7 +59,7 @@ class LocalController extends Controller
 
         $local->save();
 
-        return redirect()->route('admin.dashboard.locals')->with('success', __('backend/Pages/admins.local_update'));
+        return redirect()->route('locals.show')->with('success', __('backend/Pages/admins.local_update'));
     }
 
 }

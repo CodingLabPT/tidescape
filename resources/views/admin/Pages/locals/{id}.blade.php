@@ -106,7 +106,7 @@
                         <p>{{ __('backend/Pages/locals.editing') }} <em>{{ $local->name }}</em></p>
                     </div>
                     <br><br>
-                    <form method="POST" action="/updateLocal/{{ $local->id }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('locals.update', $local->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="container mt-4z">

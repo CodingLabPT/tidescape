@@ -122,7 +122,7 @@
             <div class="dashboard-right-contents mt-4 mt-lg-0" style="border-radius:5px">
                 <div class="breadcrumb-contents">
                     <p>{{ __('backend/Pages/tours.title') }}</p>
-                    <a href="{{ route('admin.dashboard.addTour') }}"><i title="{{ __('backend/Pages/tours.add') }}" style="font-size: 30px" class="las la-plus-circle"></i></a>
+                    <a href="{{ route('tours.create') }}"><i title="{{ __('backend/Pages/tours.add') }}" style="font-size: 30px" class="las la-plus-circle"></i></a>
                 </div>
                 <br><br>
                 @if (count($tours) == 0)
@@ -156,10 +156,10 @@
                                 <td>{{ $tour->destaque == 'sim' ? 'Sim' : 'Não' }}</td>
                                 <td>
                                     <div style="display: flex; gap: 5px">
-                                        <a title="{{ __('backend/Pages/tours.delete') }}" class="btn btn-warning btn-sm" href="/admin/dashboard/tours/edit/{{ $tour->id }}">
+                                        <a title="{{ __('backend/Pages/tours.delete') }}" class="btn btn-warning btn-sm" href="{{ route('tours.details', $tour->id) }}">
                                             <i class="fas fa-info-circle"></i> {{ __('backend/Pages/tours.details') }}
                                         </a>
-                                        <a title="{{ __('backend/Pages/tours.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="/admin/dashboard/tours/delete/{{ $tour->id }}">
+                                        <a title="{{ __('backend/Pages/tours.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="{{ route('tours.destroy', $tour->id) }}">
                                             <i class="fas fa-trash-alt"></i> {{ __('backend/Pages/tours.delete') }}
                                         </a>
                                     </div>

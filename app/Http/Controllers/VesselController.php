@@ -65,7 +65,7 @@ class VesselController extends Controller
 
         $boat->save();
 
-        return redirect()->route('admin.dashboard.configs')->with('success', __('backend/Pages/admins.new_vessel_success'));
+        return redirect()->route('boats.show')->with('success', __('backend/Pages/admins.new_vessel_success'));
     }
 
     public function show() {
@@ -79,7 +79,7 @@ class VesselController extends Controller
 
     public function delete($id) {
         Boat::destroy($id);
-        return redirect()->route('admin.dashboard.configs')->with('success', __('backend/Pages/admins.vessel_deleted_success'));
+        return redirect()->route('boats.show')->with('success', __('backend/Pages/admins.vessel_deleted_success'));
     }
 
     public function details($id) {
@@ -122,6 +122,6 @@ class VesselController extends Controller
 
         $boat->save();
 
-        return redirect()->route('admin.dashboard.configs')->with('success', __('backend/Pages/admins.vessel_updated_success'));
+        return redirect()->route('boats.show')->with('success', __('backend/Pages/admins.vessel_updated_success'));
     }
 }

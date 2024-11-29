@@ -133,7 +133,7 @@
                         <p>{{ __('backend/Pages/addTourForm.AddTourTitle') }}</p>
                     </div>
                     <br>
-                    <form method="POST" action="{{ route('tour.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('tours.store') }}" enctype="multipart/form-data">
                         @csrf
                         <fieldset class="border border-gray-300 p-6 mb-6 rounded-lg">
                             <!-- Campo de Upload de Foto de Perfil -->
