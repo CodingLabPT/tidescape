@@ -65,7 +65,6 @@ Route::middleware(Localization::class)->group(function(){
      */
     Route::get('/contacts', [FrontEndController::class, 'contacts'])->name('contacts');
 
-
     /* Login2
     */
     Route::get('/login2/{id}', [LoginController::class, 'login'])->name('login.index');
@@ -126,8 +125,8 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('/admins', [AdminController::class, 'show'])->name('admins.show');
         Route::get('/clients', [ClientsController::class, 'show'])->name('clients.show');
         Route::get('/newsletters', [NewsletterController::class, 'show'])->name('newsletters.show');
+        Route::get('/admincontacts', [ContactController::class, 'admincontactshow'])->name('admincontacts.show');
 
-        Route::get('/contacts', [ContactController::class, 'show'])->name('contacts.show');
         Route::get('contacts/details/{contact}', [ContactController::class, 'details'])->name('contacts.details');
 
         /* TOURS

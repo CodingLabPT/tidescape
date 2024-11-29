@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Models\Contact;
 
-
-
-
 class ContactController extends Controller
 {
     public function store(ContactRequest $request) {
@@ -48,7 +45,7 @@ class ContactController extends Controller
         return redirect()->back()->with('success', __('backend/Pages/messages.send_success'));
     }
 
-    public function show() {
+    public function admincontactshow() {
         $contacts = Contact::all();
         return view('admin.Pages.contacts', compact('contacts'));
     }

@@ -94,13 +94,13 @@
                         ?>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/contacts') {
+                        if ($actual_link === 'https://tidescape.pt/admincontacts') {
                         ?>
-                        <h6> <a class="active" href="{{ route('contacts.show') }}"><i class="fas fa-comments"></i> {{ __('backend/sidebar.Messages') }}</a> </h6>
+                        <h6> <a class="active" href="{{ route('admincontacts.show') }}"><i class="fas fa-comments"></i> {{ __('backend/sidebar.Messages') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('contacts.show') }}"><i class="fas fa-comments"></i> {{ __('backend/sidebar.Messages') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('admincontacts.show') }}"><i class="fas fa-comments"></i> {{ __('backend/sidebar.Messages') }}</a> </h6>
                         <?php
                         }
                         ?>

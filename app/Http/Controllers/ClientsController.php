@@ -16,6 +16,6 @@ class ClientsController extends Controller
     public function destroy($id) {
 
         User::destroy($id);
-        return redirect()->back()->with('success', __('backend/Pages/admins.user_delete'));
+        return redirect()->route('clients.show')->with('success', __('backend/Pages/admins.user_delete'));
     }
 }

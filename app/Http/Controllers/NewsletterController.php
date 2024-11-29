@@ -32,7 +32,7 @@ class NewsletterController extends Controller
         }
 
         // Armazenar o e-mail na base de dados
-        \App\Models\Newsletter::create([
+        Newsletter::create([
             'email' => $request->email,
         ]);
 
