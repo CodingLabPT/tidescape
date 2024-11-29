@@ -127,7 +127,11 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('/newsletters', [NewsletterController::class, 'show'])->name('newsletters.show');
         Route::get('/admincontacts', [ContactController::class, 'admincontactshow'])->name('admincontacts.show');
 
-        Route::get('contacts/details/{contact}', [ContactController::class, 'details'])->name('contacts.details');
+        /*CONTINUAR A PARTIR DAQUI*/
+
+
+
+        Route::get('admincontacts/details/{contact}', [ContactController::class, 'details'])->name('admincontacts.details');
 
         /* TOURS
         */
