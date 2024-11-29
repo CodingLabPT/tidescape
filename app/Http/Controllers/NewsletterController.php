@@ -47,7 +47,7 @@ class NewsletterController extends Controller
         // Redirecionar com mensagem de sucesso
         return redirect()->back()->with('success', __($emailSuccessMessage));
     }
-    public function delete($id) {
+    public function destroy($id) {
         Newsletter::destroy($id);
         return redirect()->back()->with('success', __('backend/Pages/admins.email_delete'));
     }

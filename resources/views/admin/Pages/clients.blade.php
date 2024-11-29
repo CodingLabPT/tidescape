@@ -162,7 +162,7 @@
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->status }}</td>
                                         <td>
-                                            <a title="{{ __('backend/Pages/users.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="/admin/dashboard/clients/delete/{{ $user->id }}"><i class="fas fa-trash-alt"></i>{{ __('backend/Pages/users.delete') }}</a>
+                                            <a title="{{ __('backend/Pages/users.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="{{ route('clients.destroy', $user->id) }}"><i class="fas fa-trash-alt"></i>{{ __('backend/Pages/users.delete') }}</a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -58,7 +58,7 @@ class ContactController extends Controller
         return view('admin.Pages.contacts.{id}',compact('contact'));
     }
 
-    public function delete($id) {
+    public function destroy($id) {
         Contact::destroy($id);
         return redirect()->back()->with('success', __('backend/Pages/admins.contact_delete'));
     }

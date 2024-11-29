@@ -136,7 +136,7 @@
                         <h4 class="breadcrumb-contents-title"> Dashboard </h4>
                         <ul class="breadcrumb-contents-list list-style-none">
                             <li class="breadcrumb-contents-list-item"> <a href="{{ route('admin.dashboard') }}" class="breadcrumb-contents-list-item-link"> Home </a> </li>
-                            <li class="breadcrumb-contents-list-item"> Reserves </li>
+                            <li class="breadcrumb-contents-list-item"> {{ __('backend/Pages/reserves.title') }} </li>
                             <li class="breadcrumb-contents-list-item">
                                 <form method="GET" action="{{ route('export.reservations') }}">
                                     @csrf
@@ -166,7 +166,7 @@
             <div class="dashboard-right-contents mt-4 mt-lg-0" style="border-radius:5px">
                 <div class="breadcrumb-contents">
                     <p>{{ __('backend/Pages/reserves.title') }}</p>
-                    <a href="{{ route('admin.dashboard.reservations.add') }}"><i title="{{ __('backend/Pages/tours.add') }}" style="font-size: 30px" class="las la-plus-circle"></i></a>
+                    <a href="{{ route('reservations.create') }}"><i title="{{ __('backend/Pages/tours.add') }}" style="font-size: 30px" class="las la-plus-circle"></i></a>
                 </div>
                 <br><br>
                 @if (count($reserves) == 0)
@@ -206,23 +206,23 @@
                                 <td class="status-cell">
                                     @if ($reserve->status === 'Pendent')
                                         <span class="badge badge-danger">
-                                            {{ GoogleTranslate::trans('Pendente', app()->getLocale()) }}
+                                            {{ __('backend/Pages/reserves.pending') }}
                                         </span>
                                     @elseif ($reserve->status === 'Waiting')
                                         <span class="badge badge-warning">
-                                            {{ GoogleTranslate::trans('Aguardando', app()->getLocale()) }}
+                                            {{ __('backend/Pages/reserves.waiting') }}
                                         </span>
                                     @else
                                         <span class="badge badge-success">
-                                            {{ GoogleTranslate::trans('Activa', app()->getLocale()) }}
+                                            {{ __('backend/Pages/reserves.active') }}
                                         </span>
                                     @endif
                                 </td>
                                 <td style="text-align: right">
-                                    <a title="{{ __('backend/Pages/reserves.details') }}" class="btn btn-warning btn-sm" href="/admin/dashboard/reservations/details/{{ $reserve->id }}">
+                                    <a title="{{ __('backend/Pages/reserves.details') }}" class="btn btn-warning btn-sm" href="{{ route('reservations.details', $reserve->id) }}">
                                         <i class="fas fa-info-circle"></i>{{ __('backend/Pages/reserves.details') }}
                                     </a>
-                                    <a title="{{ __('backend/Pages/reserves.delete_reserve') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="/admin/dashboard/reservations/delete/{{ $reserve->id }}">
+                                    <a title="{{ __('backend/Pages/reserves.delete_reserve') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="{{ route('reservations.destroy', $reserve->id) }}">
                                         <i class="fas fa-trash-alt"></i>{{ __('backend/Pages/reserves.delete') }}
                                     </a>
                                 </td>

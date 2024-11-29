@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CalendaryController;
+use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\DurationController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\LocalizationController;
@@ -89,7 +91,7 @@ Route::middleware(Localization::class)->group(function(){
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         Route::post('/checkout', [ReserveController::class, 'store'])->name('reserve.store');
-        Route::post('/admin/reserve/store', [ReserveController::class, 'adminReserveStore'])->name('admin.reserve.store');
+        Route::post('reserve/store', [ReserveController::class, 'reserveStore'])->name('admin.reserve.store');
         Route::any('/success/{id}', [ReserveController::class, 'successReserve'])->name('reserve.success');
         Route::any('/validate/{id}', [ReserveController::class, 'validateReserve'])->name('validate.reserve');
     });
@@ -114,18 +116,19 @@ Route::middleware(Localization::class)->group(function(){
 
         /* ADMIN DASH PAGES
         */
-        Route::get('/admin/dashboard/reservations', [ReserveController::class, 'show'])->name('admin.dashboard.reservations');
-        Route::get('/admin/dashboard/reservations/add', [ReserveController::class, 'create'])->name('admin.dashboard.reservations.add');
-        Route::get('/admin/dashboard/reservations/details/{id}', [ReserveController::class, 'details'])->name('admin.dashboard.reservations.details');
-        Route::get('/admin/dashboard/reservations/delete/{id}', [ReserveController::class, 'delete'])->name('admin.dashboard.reserveDelete');
+        Route::get('/reservations', [ReserveController::class, 'show'])->name('reservations.show');
+        Route::get('reservations/create', [ReserveController::class, 'create'])->name('reservations.create');
+        Route::get('reservations/details/{reserve}', [ReserveController::class, 'details'])->name('reservations.details');
+        Route::get('reservations/delete/{reserve}', [ReserveController::class, 'delete'])->name('reservations.destroy');
 
-        Route::get('/admin/dashboard/calendary', [AdminController::class, 'AdminDashboardCalendary'])->name('admin.dashboard.calendary');
-        Route::get('/admin/dashboard/admins', [AdminController::class, 'AdminDashboardAdmins'])->name('admin.dashboard.admins');
-        Route::get('/admin/dashboard/clients', [AdminController::class, 'AdminDashboardClients'])->name('admin.dashboard.clients');
-        Route::get('/admin/dashboard/newsletters', [NewsletterController::class, 'show'])->name('admin.dashboard.newsletters');
+        Route::get('/calendary', [CalendaryController::class, 'show'])->name('calendarys.show');
 
-        Route::get('/admin/dashboard/contacts', [ContactController::class, 'show'])->name('admin.dashboard.contacts');
-        Route::get('/admin/dashboard/contacts/details/{id}', [ContactController::class, 'details'])->name('admin.dashboard.contacts.details');
+        Route::get('/admins', [AdminController::class, 'show'])->name('admins.show');
+        Route::get('/clients', [ClientsController::class, 'show'])->name('clients.show');
+        Route::get('/newsletters', [NewsletterController::class, 'show'])->name('newsletters.show');
+
+        Route::get('/contacts', [ContactController::class, 'show'])->name('contacts.show');
+        Route::get('contacts/details/{contact}', [ContactController::class, 'details'])->name('contacts.details');
 
         /* TOURS
         */
@@ -185,11 +188,10 @@ Route::middleware(Localization::class)->group(function(){
 
         /* DELETE ROUTES
         */
-        Route::get('/admin/dashboard/clients/delete/{id}', [AdminController::class, 'deleteClients'])->name('admin.dashboard.clientsDelete');
-        Route::get('/admin/dashboard/admins/delete/{id}', [AdminController::class, 'deleteAdmins'])->name('admin.dashboard.adminsDelete');
-
-        Route::get('/admin/dashboard/newsletters/delete/{id}', [NewsletterController::class, 'delete'])->name('admin.dashboard.newslettersDelete');
-        Route::get('/admin/dashboard/contacts/delete/{id}', [ContactController::class, 'delete'])->name('admin.dashboard.contactsDelete');
+        Route::get('clients/delete/{client}', [ClientsController::class, 'destroy'])->name('clients.destroy');
+        Route::get('admins/delete/{admin}', [AdminController::class, 'destroy'])->name('admins.destroy');
+        Route::get('newsletters/delete/{newsletter}', [NewsletterController::class, 'destroy'])->name('admin.dashboard.newslettersDelete');
+        Route::get('ontacts/delete/{ontacts}', [ContactController::class, 'destroy'])->name('admin.dashboard.contactsDelete');
 
 
         /* EXPORT EXCEL ROUTES

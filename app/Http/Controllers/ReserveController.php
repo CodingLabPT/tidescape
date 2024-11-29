@@ -68,10 +68,10 @@ class ReserveController extends Controller
 
     public function delete($id) {
         Reserve::destroy($id);
-        return redirect()->back()->with('success', __('backend/Pages/admins.reserve_delete'));
+        return redirect()->route('reservations.show')->with('success', __('backend/Pages/admins.reserve_delete'));
     }
 
-    public function adminReserveStore(Request $request) {
+    public function reserveStore(Request $request) {
 
         $dataForm = $request->all();
 
@@ -91,16 +91,16 @@ class ReserveController extends Controller
 
         if($request->boat == 1) {
             if($precos[0]->ep == 0) {
-                return redirect()->route('admin.dashboard.reservations')->with('error', __('backend/Pages/reserves.error_creating'));
+                return redirect()->route('reservations.show')->with('error', __('backend/Pages/reserves.error_creating'));
             }
 
         } else if($request->boat == 2) {
             if($precos[0]->eg == 0) {
-                return redirect()->route('admin.dashboard.reservations')->with('error', __('backend/Pages/reserves.error_creating'));
+                return redirect()->route('reservations.show')->with('error', __('backend/Pages/reserves.error_creating'));
             }
         } else {
             if($precos[0]->emg == 0) {
-                return redirect()->route('admin.dashboard.reservations')->with('error', __('backend/Pages/reserves.error_creating'));
+                return redirect()->route('reservations.show')->with('error', __('backend/Pages/reserves.error_creating'));
             }
         }
 
@@ -166,7 +166,7 @@ class ReserveController extends Controller
 
         $reserve->save();
 
-        return redirect()->route('admin.dashboard.reservations')->with('success', __('backend/Pages/reserves.turn_active'));
+        return redirect()->route('reservations.show')->with('success', __('backend/Pages/reserves.turn_active'));
 
     }
 
@@ -229,7 +229,7 @@ class ReserveController extends Controller
         Mail::to($email)->send(new ConfirmReserves($locale, $email, $phone, $tourName, $day, $time, $boat));
         Mail::to($email2)->send(new ConfirmReserves($locale, $email, $phone, $tourName, $day, $time, $boat));
 
-        return redirect()->route('admin.dashboard.reservations')->with('success', __('backend/Pages/reserves.turn_active'));
+        return redirect()->route('reservations.show')->with('success', __('backend/Pages/reserves.turn_active'));
     }
 
     public function details($id) {

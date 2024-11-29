@@ -79,7 +79,7 @@ class TourController extends Controller
 
         $tour->save();
 
-        return redirect()->route('admin.dashboard.tours')->with('success', __('backend/Pages/admins.tour_create'));
+        return redirect()->route('tours.show')->with('success', __('backend/Pages/admins.tour_create'));
         }
     }
 
@@ -92,7 +92,7 @@ class TourController extends Controller
 
     public function delete($id) {
         Tour::destroy($id);
-        return redirect()->back()->with('success', __('backend/Pages/admins.tour_delete'));
+        return redirect()->route('tours.show')->with('success', __('backend/Pages/admins.tour_delete'));
     }
 
     public function edit(Request $request, $id) {
@@ -141,6 +141,6 @@ class TourController extends Controller
 
         $tour->save();
 
-        return redirect()->route('admin.dashboard.tours')->with('success', __('backend/Pages/admins.update_tour'));
+        return redirect()->route('tours.show')->with('success', __('backend/Pages/admins.update_tour'));
     }
 }

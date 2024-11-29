@@ -28,25 +28,25 @@
                         <h6 style="display:block; text-align:left; padding: 2px 15px; font-size: 16px; font-weight:bold" href="/dashboard"><i class="fas fa-calendar-check"></i> {{ __('backend/sidebar.booking_management') }}</h6>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/reservations') {
+                        if ($actual_link === 'https://tidescape.pt/reservations') {
                         ?>
-                        <h6> <a class="active" style=""  href="{{ route('admin.dashboard.reservations') }}"><i class="fas fa-calendar-check"></i> {{ __('backend/sidebar.booking') }}</a> </h6>
+                        <h6> <a class="active" style=""  href="{{ route('reservations.show') }}"><i class="fas fa-calendar-check"></i> {{ __('backend/sidebar.booking') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px"  href="{{ route('admin.dashboard.reservations') }}"><i class="fas fa-calendar-check"></i> {{ __('backend/sidebar.booking') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px"  href="{{ route('reservations.show') }}"><i class="fas fa-calendar-check"></i> {{ __('backend/sidebar.booking') }}</a> </h6>
                         <?php
                         }
                         ?>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/calendary') {
+                        if ($actual_link === 'https://tidescape.pt/calendary') {
                         ?>
-                        <h6> <a class="active" href="{{ route('admin.dashboard.calendary') }}"><i class="fas fa-calendar"></i> {{ __('backend/sidebar.Calendar') }}</a> </h6>
+                        <h6> <a class="active" href="{{ route('calendarys.show') }}"><i class="fas fa-calendar"></i> {{ __('backend/sidebar.Calendar') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px"  href="{{ route('admin.dashboard.calendary') }}"><i class="fas fa-calendar"></i> {{ __('backend/sidebar.Calendar') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px"  href="{{ route('calendarys.show') }}"><i class="fas fa-calendar"></i> {{ __('backend/sidebar.Calendar') }}</a> </h6>
                         <?php
                         }
                         ?>
@@ -58,49 +58,49 @@
                         <h6 style="display:block; text-align:left; padding: 2px 15px; font-size: 16px; font-weight:bold" href="/dashboard">{{ __('backend/sidebar.Users') }}</h6>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/admins') {
+                        if ($actual_link === 'https://tidescape.pt/admins') {
                         ?>
-                        <h6> <a class="active"  href="{{ route('admin.dashboard.admins') }}"><i class="fas fa-user-shield"></i> {{ __('backend/sidebar.Admins') }}</a> </h6>
+                        <h6> <a class="active"  href="{{ route('admins.show') }}"><i class="fas fa-user-shield"></i> {{ __('backend/sidebar.Admins') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px"  href="{{ route('admin.dashboard.admins') }}"><i class="fas fa-user-shield"></i> {{ __('backend/sidebar.Admins') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px"  href="{{ route('admins.show') }}"><i class="fas fa-user-shield"></i> {{ __('backend/sidebar.Admins') }}</a> </h6>
                         <?php
                         }
                         ?>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/clients') {
+                        if ($actual_link === 'https://tidescape.pt/clients') {
                         ?>
-                        <h6> <a class="active" href="{{ route('admin.dashboard.clients') }}"><i class="fas fa-users"></i> {{ __('backend/sidebar.Users') }}</a> </h6>
+                        <h6> <a class="active" href="{{ route('clients.show') }}"><i class="fas fa-users"></i> {{ __('backend/sidebar.Users') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('admin.dashboard.clients') }}"><i class="fas fa-users"></i> {{ __('backend/sidebar.Users') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('clients.show') }}"><i class="fas fa-users"></i> {{ __('backend/sidebar.Users') }}</a> </h6>
                         <?php
                         }
                         ?>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/newsletters') {
+                        if ($actual_link === 'https://tidescape.pt/newsletters') {
                         ?>
-                        <h6> <a class="active" href="{{ route('admin.dashboard.newsletters') }}"><i class="fas fa-envelope"></i> {{ __('backend/sidebar.Newsletter') }}</a> </h6>
+                        <h6> <a class="active" href="{{ route('newsletters.show') }}"><i class="fas fa-envelope"></i> {{ __('backend/sidebar.Newsletter') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('admin.dashboard.newsletters') }}"><i class="fas fa-envelope"></i> {{ __('backend/sidebar.Newsletter') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('newsletters.show') }}"><i class="fas fa-envelope"></i> {{ __('backend/sidebar.Newsletter') }}</a> </h6>
                         <?php
                         }
                         ?>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/contacts') {
+                        if ($actual_link === 'https://tidescape.pt/contacts') {
                         ?>
-                        <h6> <a class="active" href="{{ route('admin.dashboard.contacts') }}"><i class="fas fa-comments"></i> {{ __('backend/sidebar.Messages') }}</a> </h6>
+                        <h6> <a class="active" href="{{ route('contacts.show') }}"><i class="fas fa-comments"></i> {{ __('backend/sidebar.Messages') }}</a> </h6>
                         <?php
                         } else {
                         ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('admin.dashboard.contacts') }}"><i class="fas fa-comments"></i> {{ __('backend/sidebar.Messages') }}</a> </h6>
+                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px" href="{{ route('contacts.show') }}"><i class="fas fa-comments"></i> {{ __('backend/sidebar.Messages') }}</a> </h6>
                         <?php
                         }
                         ?>
