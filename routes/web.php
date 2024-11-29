@@ -171,7 +171,7 @@ Route::middleware(Localization::class)->group(function(){
 
         /* BRANDS
         */
-        Route::get('/admin/dashboard/configs/brands', [BrandController::class, 'show'])->name('brands.show');
+        Route::get('/brands', [BrandController::class, 'show'])->name('brands.show');
 
         // Rota para deletar uma marca
         Route::get('brands/delete/{brand}', [BrandController::class, 'destroy'])->name('brands.destroy');

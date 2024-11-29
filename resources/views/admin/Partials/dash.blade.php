@@ -165,7 +165,7 @@
                         ?>
 
                         <?php
-                        if ($actual_link === 'https://tidescape.pt/admin/dashboard/configs/brands') {
+                        if ($actual_link === 'https://tidescape.pt/brands') {
                         ?>
                         <h6> <a class="active" href="{{ route('brands.show') }}"><i class="fas fa-tag"></i> Brands </a> </h6>
                         <?php
