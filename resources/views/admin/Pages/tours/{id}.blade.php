@@ -87,7 +87,7 @@
                         <h4 class="breadcrumb-contents-title"> Dashboard </h4>
                         <ul class="breadcrumb-contents-list list-style-none">
                             <li class="breadcrumb-contents-list-item"> <a href="{{ route('admin.dashboard') }}" class="breadcrumb-contents-list-item-link"> Home </a> </li>
-                            <li class="breadcrumb-contents-list-item"> {{ GoogleTranslate::trans('Editar tour', app()->getLocale()) }} </li>
+                            <li class="breadcrumb-contents-list-item"> {{ __('backend/Pages/configs.details') }} </li>
                         </ul>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                 <!--------------------------->
                 <div class="dashboard-right-contents mt-4 mt-lg-0" style="border-radius:5px">
                     <div class="breadcrumb-contents">
-                        <p>{{ GoogleTranslate::trans('Editar', app()->getLocale()) }}  <strong><em>{{ $tour->name }}</em></strong> </p>
+                        <p><strong><em>{{ $tour->name }}</em></strong> </p>
                     </div>
                     <br><br>
                     <form method="POST" action="{{ route('tours.update', $tour->id) }}" enctype="multipart/form-data">
@@ -122,7 +122,7 @@
 
                             <tr>
                                 <td colspan="2">
-                                    <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Nome atual', app()->getLocale()) }}</span>
+                                    <span style="font-style: italic; color: #999999">{{ __('backend/Pages/tours.name') }}</span>
                                     <input value="{{ $tour->name }}" placeholder="{{ __('backend/Pages/addTourForm.namePlaceholder') }}" type="text" class="form-control" id="name" name="name" required>
                                 </td>
                             </tr>
@@ -130,7 +130,7 @@
 
                             <tr>
                                 <td colspan="2">
-                                    <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Localidade a definir', app()->getLocale()) }}</span>
+                                    <span style="font-style: italic; color: #999999">{{ __('backend/Pages/reserves.local') }}</span>
                                     <select name="local" id="local" class="form-control">
                                         <option value="{{ $tour->local }}" selected>{{ $tour->local }}</option>
                                         @foreach ($locals as $local)
@@ -141,7 +141,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Duração pretendida', app()->getLocale()) }}</span>
+                                    <span style="font-style: italic; color: #999999">{{ __('backend/Pages/reserves.duration') }}</span>
                                     <select name="duration" id="duration" class="form-control">
                                         <option value="{{ $tour->duration }}" selected>{{ $tour->duration }}</option>
                                         @foreach ($durations as $duration)
@@ -153,7 +153,7 @@
 
                             <tr>
                                 <td colspan="2">
-                                    <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Colocar em destaque na', app()->getLocale()) }} "Home"</span>
+                                    <span style="font-style: italic; color: #999999">{{ __('backend/Pages/addTourForm.highlight') }} "Home"</span>
                                     <select name="destaque" id="destaque" class="form-control">
                                         @if ($tour->destaque == 'sim')
                                             <option checked value="{{ $tour->destaque }}">Sim</option>
@@ -168,8 +168,8 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Pequena descrição', app()->getLocale()) }} "Home"</span>
-                                    <textarea class="form-control" style="padding:10px; width: 100%" placeholder="{{ GoogleTranslate::trans('Pequena descrição da tour', app()->getLocale()) }}" required style="width:100%" name="obs" id="obs" cols="20" rows="5">{{ $tour->obs }}</textarea>
+                                    <span style="font-style: italic; color: #999999">{{ __('backend/Pages/addTourForm.obs') }}</span>
+                                    <textarea class="form-control" style="padding:10px; width: 100%" placeholder="{{ __('backend/Pages/addTourForm.obs') }}" required style="width:100%" name="obs" id="obs" cols="20" rows="5">{{ $tour->obs }}</textarea>
                                 </td>
                             </tr>
 
@@ -177,15 +177,15 @@
                                 <td>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Preço do barco pequeno', app()->getLocale()) }}</span>
+                                            <span style="font-style: italic; color: #999999">{{ __('backend/Pages/addTourForm.pricesmall') }}</span>
                                             <input class="form-control" type="number" maxlength="4" name="ep" id="ep" type="text" value="{{ $tour->ep }}" required>
                                         </div>
                                         <div class="col-md-4">
-                                            <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Preço do barco grande', app()->getLocale()) }}</span>
+                                            <span style="font-style: italic; color: #999999">{{ __('backend/Pages/addTourForm.pricebig') }}</span>
                                             <input class="form-control" type="number" maxlength="4" name="eg" id="eg" type="text" value="{{ $tour->eg }}" required>
                                         </div>
                                         <div class="col-md-4">
-                                            <span style="font-style: italic; color: #999999">{{ GoogleTranslate::trans('Preço do barco muito grande', app()->getLocale()) }}</span>
+                                            <span style="font-style: italic; color: #999999">{{ __('backend/Pages/addTourForm.priceslarge') }}</span>
                                             <input class="form-control" type="number" maxlength="4" name="emg" id="emg" type="text" value="{{ $tour->emg }}" required>
                                         </div>
                                     </div>
@@ -200,7 +200,7 @@
                                         <div class="col-md-4">
                                             <div class="thumbnail">
                                             <div class="caption">
-                                                <p><em>{{ GoogleTranslate::trans('Imagem principal', app()->getLocale()) }}</em></p>
+                                                <p><em>{{ __('backend/Pages/addTourForm.principal_img') }}</em></p>
                                                 </div>
                                                 <img src="<?php echo asset("{$tour->img}")?>" alt="">
                                                 <input class="form-control" type="file" id="img" name="img">
@@ -209,7 +209,7 @@
                                         <div class="col-md-4">
                                             <div class="thumbnail">
                                                 <div class="caption">
-                                                    <p>{{ GoogleTranslate::trans('Imagem adicional', app()->getLocale()) }}</p>
+                                                    <p>{{ __('backend/Pages/addTourForm.adicional_img') }}</p>
                                                 </div>
                                                 <img src="<?php echo asset("{$tour->img2}")?>" alt="">
                                                 <input class="form-control" type="file" id="img2" name="img2">
@@ -218,7 +218,7 @@
                                         <div class="col-md-4">
                                             <div class="thumbnail">
                                                 <div class="caption">
-                                                    <p>{{ GoogleTranslate::trans('Imagem adicional', app()->getLocale()) }}</p>
+                                                    <p>{{ __('backend/Pages/addTourForm.adicional_img') }}</p>
                                                 </div>
                                                 <img src="<?php echo asset("{$tour->img3}")?>" alt="">
                                                 <input class="form-control" type="file" id="img3" name="img3">
