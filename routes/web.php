@@ -66,9 +66,12 @@ Route::middleware(Localization::class)->group(function(){
     /**
      * Dashboard
      */
+    /*
     Route::get('/dashboard', function () {
         return view('dashboard');
+
     })->middleware(['auth', 'verified'])->name('dashboard');
+    */
 
     Route::middleware('auth')->group(function () {
 
@@ -76,10 +79,11 @@ Route::middleware(Localization::class)->group(function(){
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-        Route::post('/checkout', [ReserveController::class, 'store'])->name('reserve.store');
+        Route::post('/checkout', [ReserveController::class, 'store'])->name('reserves.store');
+        Route::any('/success/{id}', [ReserveController::class, 'successReserve'])->name('reserves.success');
+
         Route::post('reserve/store', [ReserveController::class, 'reserveStore'])->name('admin.reserve.store');
-        Route::any('/success/{id}', [ReserveController::class, 'successReserve'])->name('reserve.success');
-        Route::any('/validate/{id}', [ReserveController::class, 'validateReserve'])->name('validate.reserve');
+        Route::any('/validate/{id}', [ReserveController::class, 'validateReserve'])->name('reserves.validate');
     });
 
     require __DIR__.'/auth.php';

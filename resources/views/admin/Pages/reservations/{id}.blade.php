@@ -210,7 +210,7 @@
                     </div>
 
                     @if($reserve->status == 'Waiting')
-                        <form action="{{ route('validate.reserve', ['id' => $reserve->id]) }}" method="POST" class="mt-2">
+                        <form action="{{ route('reserves.validate', $reserve->id]) }}" method="POST" class="mt-2">
                                 @method('PUT')
                                 @csrf
                                 <div style="display: flex; justify-content: right; align-items: center; gap: 5px">

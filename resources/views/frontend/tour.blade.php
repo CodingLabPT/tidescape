@@ -282,7 +282,7 @@
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="sticky-top">
-                    <form action="{{ route('reserve.store') }}" method="POST">
+                    <form action="{{ route('reserves.store') }}" method="POST">
                         @csrf
                         <div class="hotel-details-widget hotel-details-widget-padding widget bg-white radius-10">
                             <div class="details-sidebar">

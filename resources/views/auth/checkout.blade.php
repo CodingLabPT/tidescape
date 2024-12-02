@@ -129,7 +129,7 @@
     <!-- Checkout area Starts -->
     <section class="Checkout-area section-bg-2 pat-100 pab-100">
         <div class="container">
-            <form method="POST" action="{{ route('reserve.success', ['id' => $reserve->id]) }}">
+            <form method="POST" action="{{ route('reserves.success', $reserve->id) }}">
                 <div class="row g-4">
                     <div class="col-xl-8 col-lg-7">
                         <div class="checkout-wrapper">
