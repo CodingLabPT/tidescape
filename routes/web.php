@@ -31,8 +31,8 @@ Route::get('/localization/{locale}', LocalizationController::class)->name('local
 Route::middleware(Localization::class)->group(function(){
 
     Route::get('/', [FrontEndController::class, 'home'])->name('home');
-    Route::post('/cadastrarContact', [ContactController::class, 'store'])->name('store.contact');
-    Route::post('/cadastrarNewsletter', [NewsletterController::class, 'store'])->name('store.newsletter');
+    Route::post('contacts/store', [ContactController::class, 'store'])->name('contacts.store');
+    Route::post('newsletters/store', [NewsletterController::class, 'store'])->name('newsletters.store');
 
     /**
      * Property
@@ -98,6 +98,7 @@ Route::middleware(Localization::class)->group(function(){
     require __DIR__.'/auth.php';
 
     Route::middleware(['auth','role:user'])->group(function(){
+
         Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
         Route::get('/dashboard/myreservations', [UserController::class, 'UserReservations'])->name('user.reservations');
         Route::get('/dashboard/reservations/details/{id}', [UserController::class, 'UserDashboardListOfReservationsDetails'])->name('user.dashboard.reservations.details');
@@ -125,13 +126,9 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('/admins', [AdminController::class, 'show'])->name('admins.show');
         Route::get('/clients', [ClientsController::class, 'show'])->name('clients.show');
         Route::get('/newsletters', [NewsletterController::class, 'show'])->name('newsletters.show');
-        Route::get('/admincontacts', [ContactController::class, 'admincontactshow'])->name('admincontacts.show');
+        Route::get('/allcontacts', [ContactController::class, 'allcontactsShow'])->name('allcontacts.show');
 
-        /*CONTINUAR A PARTIR DAQUI*/
-
-
-
-        Route::get('admincontacts/details/{contact}', [ContactController::class, 'details'])->name('admincontacts.details');
+        Route::get('allcontacts/details/{contact}', [ContactController::class, 'details'])->name('allcontacts.details');
 
         /* TOURS
         */
@@ -144,7 +141,7 @@ Route::middleware(Localization::class)->group(function(){
 
         /* CONTACTS
         */
-        Route::put('/updateContact/{id}', [ContactController::class, 'edit'])->name('update.contact');
+        Route::put('/allcontacts/update/{contact}', [ContactController::class, 'edit'])->name('allcontacts.update');
 
 
         /* LOCALS
@@ -193,8 +190,8 @@ Route::middleware(Localization::class)->group(function(){
         */
         Route::get('clients/delete/{client}', [ClientsController::class, 'destroy'])->name('clients.destroy');
         Route::get('admins/delete/{admin}', [AdminController::class, 'destroy'])->name('admins.destroy');
-        Route::get('newsletters/delete/{newsletter}', [NewsletterController::class, 'destroy'])->name('admin.dashboard.newslettersDelete');
-        Route::get('ontacts/delete/{ontacts}', [ContactController::class, 'destroy'])->name('admin.dashboard.contactsDelete');
+        Route::get('newsletters/delete/{newsletter}', [NewsletterController::class, 'destroy'])->name('newsletters.destroy');
+        Route::get('allcontacts/delete/{contacts}', [ContactController::class, 'destroy'])->name('allcontacts.destroy');
 
 
         /* EXPORT EXCEL ROUTES

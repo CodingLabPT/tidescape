@@ -192,8 +192,8 @@
                                             @endif
                                         </td>
                                         <td style="text-align:right">
-                                            <a title="{{ __('backend/Pages/messages.details') }}" class="btn btn-warning btn-sm" href="/admin/dashboard/contacts/details/{{ $contact->id }}"> <i class="fas fa-info-circle"></i>{{ __('backend/Pages/messages.details') }}</a>
-                                            <a title="{{ __('backend/Pages/messages.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="/admin/dashboard/contacts/delete/{{ $contact->id }}"> <i class="fas fa-trash-alt"></i>{{ __('backend/Pages/messages.delete') }}</a>
+                                            <a title="{{ __('backend/Pages/messages.details') }}" class="btn btn-warning btn-sm" href="{{ route('allcontacts.details', $contact->id) }}"> <i class="fas fa-info-circle"></i>{{ __('backend/Pages/messages.details') }}</a>
+                                            <a title="{{ __('backend/Pages/messages.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="{{ route('allcontacts.destroy', $contact->id) }}"> <i class="fas fa-trash-alt"></i>{{ __('backend/Pages/messages.delete') }}</a>
                                         </td>
                                     </tr>
                                 @endforeach

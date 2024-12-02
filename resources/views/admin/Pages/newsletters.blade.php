@@ -117,7 +117,7 @@
                                     <td>{{ $newsletter->email }}</td>
                                     <td style="text-align:right">
                                         <!-- <a title="Edit tour" href="/admin/dashboard/tours/edit/"><button style="background-color: #FFCA2C" type="button" class="btn btn-warning">Edit</button></a> -->
-                                        <a title="{{ __('backend/Pages/newsletter.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="/admin/dashboard/newsletters/delete/{{ $newsletter->id }}"><i class="fas fa-trash-alt"></i>{{ __('backend/Pages/newsletter.delete') }}</a>
+                                        <a title="{{ __('backend/Pages/newsletter.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="{{ route('newsletters.destroy', $newsletter->id) }}"><i class="fas fa-trash-alt"></i>{{ __('backend/Pages/newsletter.delete') }}</a>
                                     </td>
                                 </tr>
                                 @endforeach

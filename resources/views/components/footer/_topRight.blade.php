@@ -12,7 +12,7 @@
         <div class="footer-widget-inner mt-4">
             <p class="footer-widget-para"> {{ __('footer.right_subtitle') }} </p>
             <div class="footer-widget-form mt-5">
-                <form action="{{ route('store.newsletter') }}" method="POST" id="newsletter-form">
+                <form action="{{ route('newsletters.store') }}" method="POST" id="newsletter-form">
                     @csrf
                     <div class="footer-widget-form-single" style="position: relative">
                         <input class="footer-widget-form-control" value="{{ old('email') }}" type="email" id="email" name="email" placeholder="{{ __('footer.right_placeholder') }}" required>

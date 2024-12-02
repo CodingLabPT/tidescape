@@ -132,7 +132,7 @@
         </div>
     @include('_message')
     </div>
-    
+
     <!-- Breadcrumb area end -->
     <div class="body-overlay"></div>
     <div class="dashboard-area section-bg-2 dashboard-padding">
@@ -185,7 +185,7 @@
                                 @if ($contact->resposta == "")
                                 <tr>
                                     <td colspan="2">
-                                        <form action="{{ route('update.contact', ['id' => $contact->id]) }}" method="POST">
+                                        <form action="{{ route('allcontacts.update', $contact->id) }}" method="POST">
                                             @csrf
                                             @method('PUT')
                                             <textarea class="form-control" name="response" id="response" cols="30" rows="5" required placeholder="{{ __('backend/Pages/messages.type_text_here') }}"></textarea>

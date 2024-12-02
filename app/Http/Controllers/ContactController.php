@@ -45,7 +45,7 @@ class ContactController extends Controller
         return redirect()->back()->with('success', __('backend/Pages/messages.send_success'));
     }
 
-    public function admincontactshow() {
+    public function allcontactsShow() {
         $contacts = Contact::all();
         return view('admin.Pages.contacts', compact('contacts'));
     }
@@ -57,7 +57,7 @@ class ContactController extends Controller
 
     public function destroy($id) {
         Contact::destroy($id);
-        return redirect()->back()->with('success', __('backend/Pages/admins.contact_delete'));
+        return redirect()->route('allcontacts.show')->with('success', __('backend/Pages/admins.contact_delete'));
     }
 
     public function edit(Request $request, $id) {
@@ -85,7 +85,7 @@ class ContactController extends Controller
 
         Mail::to($email)->send(new ContactResponse($locale, $status, $msg, $resp, $resp_obtida_em, $msg_enviada_em));
 
-        return redirect()->back()->with('success', __('backend/Pages/admins.response_success'));
+        return redirect()->route('allcontacts.show')->with('success', __('backend/Pages/admins.response_success'));
     }
 
 
