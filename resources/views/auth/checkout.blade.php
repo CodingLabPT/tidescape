@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="{{ asset('assets/phone/css/demo.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/phone/css/intlTelInput.css') }}">
 
+    <style>
+        @media only screen and (max-width: 991px) {
+            .navbar-area .nav-container {
+                display: block !important;
+            }
+
+            .navbar-area {
+                padding: 10px !important;
+            }
+        }
+    </style>
+
     <!-- favicon -->
     <link rel=icon href="favicon.png" sizes="16x16" type="icon/png">
     <!-- bootstrap -->
@@ -34,136 +46,124 @@
     <!-- Language selector Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/css/languageSelector.css') }}">
 
-    <style>
-                @media only screen and (max-width: 991px) {
-            .navbar-area .nav-container {
-                display: block !important;
-            }
-
-            .navbar-area {
-                padding: 10px !important;
-            }
-        }
-    </style>
-
 </head>
 
 <body>
 
-<header class="header-style-01">
-    <!-- Menu area Starts -->
-    <nav class="navbar navbar-area navbar-border navbar-padding navbar-expand-lg" style="position: fixed; width: 100%; background-color: white;">
-        <div class="container custom-container-one nav-container">
-            <div class="logo-wrapper">
-                <a href="{{ route('home') }}" class="logo">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="">
-                </a>
-            </div>
-            <div class="responsive-mobile-menu d-lg-none">
-                <a href="javascript:void(0)" class="click-nav-right-icon">
-                    <i class="las la-ellipsis-v"></i>
-                </a>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hotel_booking_menu" aria-expanded="false">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+    <header class="header-style-01">
+        <!-- Menu area Starts -->
+        <nav class="navbar navbar-area navbar-border navbar-padding navbar-expand-lg" style="position: fixed; width: 100%; background-color: white;">
+            <div class="container custom-container-one nav-container">
+                <div class="logo-wrapper">
+                    <a href="{{ route('home') }}" class="logo">
+                        <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="responsive-mobile-menu d-lg-none">
+                    <a href="javascript:void(0)" class="click-nav-right-icon">
+                        <i class="las la-ellipsis-v"></i>
+                    </a>
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hotel_booking_menu" aria-expanded="false">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
 
-            <div class="collapse navbar-collapse" id="hotel_booking_menu" style="flex-grow: .4;">
-                <ul class="navbar-nav">
-                    <li><a href="{{ route('category') }}">{{ __('menu.tours') }}</a></li>
-                    <li><a href="{{ route('offers') }}">{{ __('menu.offers') }} </a></li>
-                    <li><a href="/#jump">{{ __('menu.acommodations') }} </a></li>
-                    <li><a href="{{ route('contacts') }}"> {{ __('menu.contacts') }} </a></li>
-                </ul>
-                @include('components.header._social')
-            </div>
+                <div class="collapse navbar-collapse" id="hotel_booking_menu" style="flex-grow: .4;">
+                    <ul class="navbar-nav">
+                        <li><a style="color: #FF8C32">{{ __('menu.tours') }}</a></li>
+                        <li><a href="{{ route('offers') }}">{{ __('menu.offers') }} </a></li>
+                        <li><a href="/#jump">{{ __('menu.acommodations') }} </a></li>
+                        <li><a href="{{ route('contacts') }}"> {{ __('menu.contacts') }} </a></li>
+                    </ul>
+                    @include('components.header._social')
+                </div>
 
-            <div class="navbar-right-content show-nav-content">
-                <div class="single-right-content">
-                    <div class="navbar-right-flex">
-                        @if (Route::has('login'))
-                        <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                            @auth
-                                @if ($user->role === 'admin')
-                                    <a title="{{ __('menu.dashboard') }}" style="color:black" href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('menu.dashboard') }}</a>
-                                @elseif ($user->role === 'agent')
-                                    <a title="Agent dashboard" style="color:black" href="{{ route('agent.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('menu.dashboard') }}</a>
+                <div class="navbar-right-content show-nav-content">
+                    <div class="single-right-content">
+                        <div class="navbar-right-flex">
+                            @if (Route::has('login'))
+                            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                                @auth
+                                    @if ($user->role === 'admin')
+                                        <a title="{{ __('menu.dashboard') }}" style="color:black" href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('menu.dashboard') }}</a>
+                                    @elseif ($user->role === 'agent')
+                                        <a title="Agent dashboard" style="color:black" href="{{ route('agent.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('menu.dashboard') }}</a>
+                                    @else
+                                        <a title="Dashboard" style="color:black" href="{{ route('user.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('menu.dashboard') }}</a>
+                                    @endif
                                 @else
-                                    <a title="Dashboard" style="color:black" href="{{ route('user.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('menu.dashboard') }}</a>
-                                @endif
-                            @else
-                                <a style="color:black" href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('menu.log_in') }}</a> &nbsp;&nbsp;&nbsp;
+                                    <a style="color:black" href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('menu.log_in') }}</a> &nbsp;&nbsp;&nbsp;
 
-                                @if (Route::has('register'))
-                                    <a style="color:white; background-color:#FF8C32; padding: .7rem 1rem; border-radius: 5px" href="{{ route('register') }}" class="">{{ __('menu.sign_up') }}</a>
-                                @endif
-                            @endauth
+                                    @if (Route::has('register'))
+                                        <a style="color:white; background-color:#FF8C32; padding: .7rem 1rem; border-radius: 5px" href="{{ route('register') }}" class="">{{ __('menu.sign_up') }}</a>
+                                    @endif
+                                @endauth
+                            </div>
+                            @endif
+                            @include('frontend.home.partials.languageSelector')
                         </div>
-                        @endif
-                        @include('frontend.home.partials.languageSelector')
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <!-- Menu area end -->
-</header>
+        </nav>
+        <!-- Menu area end -->
+    </header>
 
-    <div class="breadcrumb-area section-bg-2 breadcrumb-padding" style="margin-top: 4%">
+    <div class="breadcrumb-area section-bg-2 breadcrumb-padding" style="margin-top: 3rem">
         <div class="container custom-container-one">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-contents">
-                        <h4 class="breadcrumb-contents-title"> {{ __('category.page_title') }} </h4>
+                        <h4 class="breadcrumb-contents-title"> {{ __('category.reserve_information') }} </h4>
                         <ul class="breadcrumb-contents-list list-style-none">
-                            <li class="breadcrumb-contents-list-item"> <a href="/" class="breadcrumb-contents-list-item-link"> Home </a> </li>
-                            <li class="breadcrumb-contents-list-item"> Checkout </li>
+                            <li class="breadcrumb-contents-list-item"> <a href="{{ url('/') }}" class="breadcrumb-contents-list-item-link"> {{ __('backend/Pages/messages.reserve_detail') }} </a> </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-@include('_message')
-</div>
+        @include('_message')
+    </div>
 
     <!-- Checkout area Starts -->
     <section class="Checkout-area section-bg-2 pat-100 pab-100">
         <div class="container">
-            <form method="POST" action="{{ route('reserves.success', $reserve->id) }}">
                 <div class="row g-4">
                     <div class="col-xl-8 col-lg-7">
                         <div class="checkout-wrapper">
                             <div class="checkout-single bg-white radius-10">
                                 <h4 class="checkout-title"> {{ __('category.reserve_information') }}</h4>
                                 <div class="checkout-contents mt-3">
-                                    <div class="checkout-form custom-form">
-                                            @method('PUT')
-                                            @csrf
-                                            <div class="input-flex-item">
-                                                <div class="single-input mt-4">
-                                                    <label class="label-title"> {{ __('auth.register.fn') }} </label>
-                                                    <input class="form--control" disabled value={{ $user->fn }} type="text" id="fn" name="fn" placeholder="Type First Name">
+                                    <form method="POST" action="{{ route('reserves.success', $reserve->id) }}">
+                                        <div class="checkout-form custom-form">
+                                                @method('PUT')
+                                                @csrf
+                                                <div class="input-flex-item">
+                                                    <div class="single-input mt-4">
+                                                        <label class="label-title"> {{ __('auth.register.fn') }} </label>
+                                                        <input class="form--control" disabled value={{ $user->fn }} type="text" id="fn" name="fn" placeholder="Type First Name">
+                                                    </div>
+                                                    <div class="single-input mt-4">
+                                                        <label class="label-title"> {{ __('auth.register.ln') }} </label>
+                                                        <input class="form--control" disabled value={{ $user->ln }} type="text" id="ln" name="ln" placeholder="Type Last Name">
+                                                    </div>
                                                 </div>
-                                                <div class="single-input mt-4">
-                                                    <label class="label-title"> {{ __('auth.register.ln') }} </label>
-                                                    <input class="form--control" disabled value={{ $user->ln }} type="text" id="ln" name="ln" placeholder="Type Last Name">
+                                                <div class="input-flex-item">
+                                                    <div class="single-input mt-4">
+                                                        <label class="label-title"> {{ __('auth.register.phone_number') }} </label>
+                                                        <input class="form--control" disabled id="phone" name="phone" value={{ $user->phone }} type="tel" placeholder="Type Mobile Number">
+                                                    </div>
+                                                    <div class="single-input mt-4">
+                                                        <label class="label-title"> {{ __('auth.register.email') }} </label>
+                                                        <input class="form--control" disabled type="text" name="email" id="email" value={{ $user->email }} placeholder="Type Email">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="input-flex-item">
-                                                <div class="single-input mt-4">
-                                                    <label class="label-title"> {{ __('auth.register.phone_number') }} </label>
-                                                    <input class="form--control" disabled id="phone" name="phone" value={{ $user->phone }} type="tel" placeholder="Type Mobile Number">
+                                                <br>
+                                                <div class="input-flex-item">
+                                                    <button type="submit" class="btn btn-primary">{{ __('category.submit') }}</button>
                                                 </div>
-                                                <div class="single-input mt-4">
-                                                    <label class="label-title"> {{ __('auth.register.email') }} </label>
-                                                    <input class="form--control" disabled type="text" name="email" id="email" value={{ $user->email }} placeholder="Type Email">
-                                                </div>
-                                            </div>
-                                            <br>
-                                            <div class="input-flex-item">
-                                                <button type="submit" class="btn btn-primary">{{ __('category.submit') }}</button>
-                                            </div>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
 
@@ -247,7 +247,6 @@
                                             @if ($reserve->tipo_embarcacao == 'large')
                                                 <li class="list"> <span class="regular"> {{ __('category.desired_boat') }}  </span> <span class="strong"> {{ __('backend/Pages/reserves.large') }} </span> </li>
                                             @endif
-
                                         </ul>
                                     </div>
                                 </div>
@@ -269,15 +268,12 @@
                                                 <li class="list"> <span class="regular"> Total </span> <span class="strong color-one fs-20"> {{ $tourEMG }}€ </span> </li>
                                             @endif
                                         </ul>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </form>
         </div>
     </section>
     <!-- Checkout area end -->

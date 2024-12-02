@@ -80,10 +80,11 @@ Route::middleware(Localization::class)->group(function(){
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         Route::post('/checkout', [ReserveController::class, 'store'])->name('reserves.store');
-        Route::any('/success/{id}', [ReserveController::class, 'successReserve'])->name('reserves.success');
+
+        Route::post('/success/{reserve}', [ReserveController::class, 'successReserve'])->name('reserves.success');
 
         Route::post('reserve/store', [ReserveController::class, 'reserveStore'])->name('admin.reserve.store');
-        Route::any('/validate/{id}', [ReserveController::class, 'validateReserve'])->name('reserves.validate');
+        Route::any('/validate/{reserve}', [ReserveController::class, 'validateReserve'])->name('reserves.validate');
     });
 
     require __DIR__.'/auth.php';
@@ -92,12 +93,12 @@ Route::middleware(Localization::class)->group(function(){
 
         Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
         Route::get('/dashboard/myreservations', [UserController::class, 'UserReservations'])->name('user.reservations');
-        Route::get('/dashboard/reservations/details/{id}', [UserController::class, 'UserDashboardListOfReservationsDetails'])->name('user.dashboard.reservations.details');
-        Route::get('/dashboard/reservations/delete/{id}', [UserController::class, 'deleteReserve'])->name('user.dashboard.reserveDelete');
+        Route::get('/dashboard/reservations/details/{reservation}', [UserController::class, 'UserDashboardListOfReservationsDetails'])->name('user.dashboard.reservations.details');
+        Route::get('/dashboard/reservations/delete/{reservation}', [UserController::class, 'deleteReserve'])->name('user.dashboard.reserveDelete');
         Route::get('/dashboard/mycalendary', [UserController::class, 'UserDashboardCalendary'])->name('user.dashboard.calendary');
         Route::get('/dashboard/mycontacts', [UserController::class, 'UserDashboardContacts'])->name('user.dashboard.contacts');
-        Route::get('/dashboard/mycontacts/details/{id}', [UserController::class, 'UserDashboardListOfContactsDetails']);
-        Route::get('/dashboard/mycontacts/delete/{id}', [UserController::class, 'deleteContact']);
+        Route::get('/dashboard/mycontacts/details/{contacts}', [UserController::class, 'UserDashboardListOfContactsDetails']);
+        Route::get('/dashboard/mycontacts/delete/{contacts}', [UserController::class, 'deleteContact']);
 
     }); // END GROUP USER MIDDLEWARE
 
