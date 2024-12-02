@@ -32,7 +32,7 @@
                         <h4 class="contact-contents-title"> {{ __('contact.get_in_touch') }} </h4>
                         <p class="contact-contents-para mt-2"> {{ __('contact.friendly_team') }} </p>
                         <div class="contact-contents-form custom-form">
-                            <form id="contactForm" action="{{ route('store.contact') }}" method="POST">
+                            <form id="contactForm" action="{{ route('contacts.store') }}" method="POST">
                                 @csrf
                                 <div style="display: flex; gap: 10px">
                                     <div class="single-input mt-4">

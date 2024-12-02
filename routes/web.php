@@ -30,40 +30,27 @@ Route::get('/localization/{locale}', LocalizationController::class)->name('local
 
 Route::middleware(Localization::class)->group(function(){
 
+
+
+    /* FRONTEND
+    */
+
     Route::get('/', [FrontEndController::class, 'home'])->name('home');
-    Route::post('contacts/store', [ContactController::class, 'store'])->name('contacts.store');
-    Route::post('newsletters/store', [NewsletterController::class, 'store'])->name('newsletters.store');
-
-    /**
-     * Property
-     */
-    Route::get('/tour/{id}/{name}', [FrontEndController::class, 'show'])->name('property');
-
-
-    /**
-     * Category
-     */
     Route::get('/category', [FrontEndController::class, 'category'])->name('category');
-
-    /* filters */
-    Route::get('/categoryfilter', [FrontEndController::class, 'categoryfilter'])->name('category.filter');
-    Route::get('/offersfilter', [FrontEndController::class, 'offersfilter'])->name('offers.filter');
-
-
     Route::get('/offers', [FrontEndController::class, 'offers'])->name('offers');
-    Route::get('/accomodations', [FrontEndController::class, 'accomodations'])->name('accomodations');
+        /* filters */
+        Route::get('/categoryfilter', [FrontEndController::class, 'categoryfilter'])->name('category.filter');
+        Route::get('/offersfilter', [FrontEndController::class, 'offersfilter'])->name('offers.filter');
 
+    Route::get('/contacts', [FrontEndController::class, 'contacts'])->name('contacts');
 
-    /**
-     * Info
-     */
     Route::get('/info', [FrontEndController::class, 'info'])->name('info');
     Route::get('/policy', [FrontEndController::class, 'policy'])->name('policy');
 
-    /**
-     * Contacts
-     */
-    Route::get('/contacts', [FrontEndController::class, 'contacts'])->name('contacts');
+    Route::get('/tour/{id}/{name}', [FrontEndController::class, 'show'])->name('property');
+
+    Route::post('contacts/store', [ContactController::class, 'store'])->name('contacts.store');
+    Route::post('newsletters/store', [NewsletterController::class, 'store'])->name('newsletters.store');
 
     /* Login2
     */
@@ -175,15 +162,9 @@ Route::middleware(Localization::class)->group(function(){
         /* BRANDS
         */
         Route::get('/brands', [BrandController::class, 'show'])->name('brands.show');
-
-        // Rota para deletar uma marca
         Route::get('brands/delete/{brand}', [BrandController::class, 'destroy'])->name('brands.destroy');
-
-        // Rota para aceder ao formulario de criar uma marca
         Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create');
-
         Route::post('brands/store', [BrandController::class, 'store'])->name('brands.store');
-
 
 
         /* DELETE ROUTES

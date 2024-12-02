@@ -126,7 +126,6 @@ class FrontEndController extends Controller
         return view('frontend.category', compact('tours','user','locals','durations','boats','tourWith1h','tourWith2h','tourWith3h','tourWith4h','tourWith5h','tourWith6h','tourWith7h','tourWith8h','tourWith9h','tourWith10h','tourWith11h','tourWith12h','totalToursWithEgNotZero'));
     }
 
-
     public function offers(Request $request) {
 
         $user      = Auth::user();
@@ -224,7 +223,20 @@ class FrontEndController extends Controller
 
         return view('frontend.offers', compact('tours','user','locals','durations','boats','tourWith1h','tourWith2h','tourWith3h','tourWith4h','tourWith5h','tourWith6h','tourWith7h','tourWith8h','tourWith9h','tourWith10h','tourWith11h','tourWith12h','totalToursWithEgNotZero'));
     }
+    public function info() {
+        $user = Auth::user();
+        return view('frontend.info', compact('user'));
+    }
 
+    public function policy() {
+        $user = Auth::user();
+        return view('frontend.policy', compact('user'));
+    }
+
+    public function contacts() {
+        $user = Auth::user();
+        return view('frontend.contacts',compact('user'));
+    }
 
     /*  PROPERTYS /tour
     */
@@ -239,20 +251,5 @@ class FrontEndController extends Controller
 
         return view('frontend.tour',compact('smallBoat','bigBoat','largeBoat','tour','user','reserve'));
 
-    }
-
-    public function info() {
-        $user = Auth::user();
-        return view('frontend.info', compact('user'));
-    }
-
-    public function policy() {
-        $user = Auth::user();
-        return view('frontend.policy', compact('user'));
-    }
-
-    public function contacts() {
-        $user = Auth::user();
-        return view('frontend.contacts',compact('user'));
     }
 }
