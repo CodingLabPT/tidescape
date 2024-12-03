@@ -30,33 +30,38 @@ Route::get('/localization/{locale}', LocalizationController::class)->name('local
 
 Route::middleware(Localization::class)->group(function(){
 
-    /* FRONTEND
-    */
-
+    /* FRONTEND*/
     Route::get('/', [FrontEndController::class, 'home'])->name('home');
     Route::get('/category', [FrontEndController::class, 'category'])->name('category');
     Route::get('/offers', [FrontEndController::class, 'offers'])->name('offers');
-        /* filters */
+
+        /* FILTERS */
         Route::get('/categoryfilter', [FrontEndController::class, 'categoryfilter'])->name('category.filter');
         Route::get('/offersfilter', [FrontEndController::class, 'offersfilter'])->name('offers.filter');
 
+    /* CONTACTS */
     Route::get('/contacts', [FrontEndController::class, 'contacts'])->name('contacts');
 
+    /* INFO */
     Route::get('/info', [FrontEndController::class, 'info'])->name('info');
+
+    /* POLICY */
     Route::get('/policy', [FrontEndController::class, 'policy'])->name('policy');
 
+    /* TOUR - PROPERTY */
     Route::get('/tour/{id}/{name}', [FrontEndController::class, 'show'])->name('property');
 
+    /* STORE FORM CONTACTS */
     Route::post('contacts/store', [ContactController::class, 'store'])->name('contacts.store');
+
+    /* STORE EMAILS IN A NEWSLETTER */
     Route::post('newsletters/store', [NewsletterController::class, 'store'])->name('newsletters.store');
 
-    /* Login2
-    */
+    /* LOGIN 2 */
     Route::get('/login2/{id}', [LoginController::class, 'login'])->name('login.index');
     Route::post('/loginStore', [LoginController::class, 'store'])->name('login.store');
 
-    /* Register2
-    */
+    /* REGISTER 2 */
     Route::get('/register2/{id}', [RegisterController::class, 'register'])->name('register.index');
     Route::post('/registerStore', [RegisterController::class, 'store'])->name('register.store');
 
