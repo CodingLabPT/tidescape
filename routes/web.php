@@ -91,7 +91,6 @@ Route::middleware(Localization::class)->group(function(){
 
 
         /* USER DASHBOARD PAGES*/
-
         Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
 
         /* MY RESERVATIONS */
@@ -109,11 +108,11 @@ Route::middleware(Localization::class)->group(function(){
 
     }); // END GROUP USER MIDDLEWARE
 
+
+        /* ADMIN DASHBOARD PAGES */
         Route::middleware(['auth','role:admin'])->group(function(){
         Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
         Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
-
-        /* ADMIN DASHBOARD PAGES*/
 
         /* RESERVATIONS */
         Route::get('/reservations', [ReserveController::class, 'show'])->name('reservations.show');
