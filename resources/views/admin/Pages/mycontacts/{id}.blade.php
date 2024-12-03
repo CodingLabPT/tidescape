@@ -122,9 +122,9 @@
                     <div class="breadcrumb-contents">
                         <p>{{ __('backend/Pages/reserves.details') }} <em> <strong> {{ $contact->fn }} {{ $contact->ln }} </strong> (#{{ $contact->id }}) </em></p>
                         @if ($contact->status === 'Pendent')
-                            <p class="alert alert-danger" style="color: #721C24"> <em> <strong> {{ GoogleTranslate::trans('Pendente', app()->getLocale()) }} </strong> </em> </p>
+                            <span class="badge badge-danger">{{ __('backend/Pages/messages.pending') }}</span>
                         @else
-                            <p class="alert alert-success" style="color: #155724"> <em> <strong> {{ GoogleTranslate::trans('Resolvida', app()->getLocale()) }} </strong> </em> </p>
+                            <span class="badge badge-success">{{ __('backend/Pages/messages.solved') }}</span>
                         @endif
                     </div>
                     <br><br>
@@ -140,10 +140,10 @@
                                     <td class="text-right">{{ $contact->created_at }}</td>
                                 </tr>
                                 <tr>
-                                    <td>{{ GoogleTranslate::trans('Estado', app()->getLocale()) }}</td>
+                                    <td>{{ __('backend/Pages/messages.response') }}</td>
                                     <td class="text-right">
                                         @if ($contact->resposta == "")
-                                            <span class="badge badge-danger">{{ GoogleTranslate::trans('Sem resposta', app()->getLocale()) }}</span>
+                                            <span class="badge badge-danger">{{ __('backend/Pages/messages.waiting') }}</span>
                                         @else
                                             <span class="badge badge-success">{{ $contact->resposta }}</span>
                                         @endif

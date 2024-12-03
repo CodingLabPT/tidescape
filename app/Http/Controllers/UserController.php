@@ -26,7 +26,7 @@ class UserController extends Controller
         return view('admin.user_dashboard')->with(['contactQuery' => $contactQuery, 'reserveQuery' => $reserveQuery, 'newsletterQuery' => $newsletterQuery]);
     }
 
-    public function UserReservations() {
+    public function myreservesshow() {
 
         $user = Auth::user();
         $email = $user->email;
@@ -38,7 +38,7 @@ class UserController extends Controller
         return view('admin.Pages.myreservations')->with(['reserveQuery' => $reserveQuery]);
     }
 
-    public function UserDashboardListOfReservationsDetails($id) {
+    public function myreservesdetails($id) {
         $reserve = Reserve::findOrFail($id);
 
         $idtour = $reserve->id_tour;
@@ -57,14 +57,12 @@ class UserController extends Controller
         return view('admin.Pages.myreservations.{id}',['reserve' => $reserve, 'tourName' => $tourName, 'tourEP' => $tourEP, 'tourEG' => $tourEG, 'tourEMG' => $tourEMG, 'tourLocal' => $tourLocal, 'tourDuration' => $tourDuration]);
     }
 
-    public function deleteReserve($id) {
-
-
+    public function myreservedestroy($id) {
         Reserve::destroy($id);
         return redirect()->back()->with('success', __('backend/Pages/myReserves.delete'));
     }
 
-    public function UserDashboardCalendary() {
+    public function mycalendaryshow() {
 
         $user = Auth::user();
         $email = $user->email;
@@ -95,28 +93,23 @@ class UserController extends Controller
         return view('admin.Pages.mycalendary',['events' => $events, 'reserves'=> $reserves]);
     }
 
-    public function UserDashboardContacts() {
+    public function mycontactsshow() {
         $user = Auth::user();
 
         $email = $user->email;
 
         $contactQuery = Contact::where('email', $email)->get();
 
-
-
         return view('admin.Pages.mycontacts')->with(['contactQuery' => $contactQuery]);
     }
 
-    public function UserDashboardListOfContactsDetails($id) {
+    public function mycontactsdetails($id) {
         $contact = Contact::findOrFail($id);
-
         $idcontact = $contact->id;
-
         return view('admin.Pages.mycontacts.{id}',['contact' => $contact]);
     }
 
-    public function deleteContact($id) {
-
+    public function mycontactdestroy($id) {
         Contact::destroy($id);
         return redirect()->back()->with('success', __('backend/Pages/myMessages.delete'));
         ;

@@ -207,10 +207,10 @@
                                             @endif
                                         </td>
                                         <td class="text-right">
-                                        <a title="{{ __('backend/Pages/reserves.details') }}" href="/dashboard/mycontacts/details/{{ $contact->id }}" class="btn btn-warning btn-sm btn-icon-only">
+                                        <a title="{{ __('backend/Pages/reserves.details') }}" href="{{ route('mycontacts.details', $contact->id) }}" class="btn btn-warning btn-sm btn-icon-only">
                                             <i class="fas fa-info-circle"></i> <span>{{ __('backend/Pages/reserves.details') }}</span>
                                         </a>
-                                        <a title="{{ __('backend/Pages/reserves.delete') }}" class="btn btn-danger btn-sm btn-icon-only" onclick="return confirm('Are you sure to cancel?')" href="/dashboard/mycontacts/delete/{{ $contact->id }}">
+                                        <a title="{{ __('backend/Pages/reserves.delete') }}" class="btn btn-danger btn-sm btn-icon-only" onclick="return confirm('Are you sure to cancel?')" href="{{ route('mycontacts.destroy', $contact->id) }}">
                                             <i class="fas fa-trash-alt"></i> <span>{{ __('backend/Pages/reserves.delete') }}</span>
                                         </a>
                                         </td>

@@ -226,14 +226,14 @@
                                         @elseif ($reserve->status === 'Waiting')
                                             <span class="badge badge-warning">{{ __('backend/Pages/reserves.waiting') }}</span>
                                         @else
-                                            <span class="badge badge-success">{{ GoogleTranslate::trans('Active', app()->getLocale()) }}</span>
+                                            <span class="badge badge-success">{{ __('backend/Pages/reserves.active') }}</span>
                                         @endif
                                     </td>
                                     <td class="text-right">
-                                        <a title="{{ __('backend/Pages/reserves.details') }}" href="/dashboard/reservations/details/{{ $reserve->id }}" class="btn btn-warning btn-sm btn-icon-only">
+                                        <a title="{{ __('backend/Pages/reserves.details') }}" href="{{ route('myreserves.details', $reserve->id) }}" class="btn btn-warning btn-sm btn-icon-only">
                                             <i class="fas fa-info-circle"></i> <span>{{ __('backend/Pages/reserves.details') }}</span>
                                         </a>
-                                        <a title="{{ __('backend/Pages/reserves.delete') }}" class="btn btn-danger btn-sm btn-icon-only" onclick="return confirm('Are you sure to cancel?')" href="/dashboard/reservations/delete/{{ $reserve->id }}">
+                                        <a title="{{ __('backend/Pages/reserves.delete') }}" class="btn btn-danger btn-sm btn-icon-only" onclick="return confirm('Are you sure to cancel?')" href="{{ route('myreserves.destroy', $reserve->id) }}">
                                             <i class="fas fa-trash-alt"></i> <span>{{ __('backend/Pages/reserves.delete') }}</span>
                                         </a>
                                     </td>

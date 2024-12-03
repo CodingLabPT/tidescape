@@ -92,13 +92,17 @@ Route::middleware(Localization::class)->group(function(){
     Route::middleware(['auth','role:user'])->group(function(){
 
         Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
-        Route::get('/dashboard/myreservations', [UserController::class, 'UserReservations'])->name('user.reservations');
-        Route::get('/dashboard/reservations/details/{reservation}', [UserController::class, 'UserDashboardListOfReservationsDetails'])->name('user.dashboard.reservations.details');
-        Route::get('/dashboard/reservations/delete/{reservation}', [UserController::class, 'deleteReserve'])->name('user.dashboard.reserveDelete');
-        Route::get('/dashboard/mycalendary', [UserController::class, 'UserDashboardCalendary'])->name('user.dashboard.calendary');
-        Route::get('/dashboard/mycontacts', [UserController::class, 'UserDashboardContacts'])->name('user.dashboard.contacts');
-        Route::get('/dashboard/mycontacts/details/{contacts}', [UserController::class, 'UserDashboardListOfContactsDetails']);
-        Route::get('/dashboard/mycontacts/delete/{contacts}', [UserController::class, 'deleteContact']);
+
+        Route::get('/dashboard/mycalendary', [UserController::class, 'mycalendaryshow'])->name('mycalendarys.show');
+
+        Route::get('/dashboard/myreservations', [UserController::class, 'myreservesshow'])->name('myreservations.show');
+        Route::get('/dashboard/myreservations/details/{reservation}', [UserController::class, 'myreservesdetails'])->name('myreserves.details');
+        Route::get('/dashboard/myreservations/delete/{reservation}', [UserController::class, 'myreservedestroy'])->name('myreserves.destroy');
+
+
+        Route::get('/dashboard/mycontacts', [UserController::class, 'mycontactsshow'])->name('mycontacts.show');
+        Route::get('/dashboard/mycontacts/details/{contact}', [UserController::class, 'mycontactsdetails'])->name('mycontacts.details');
+        Route::get('/dashboard/mycontacts/delete/{contact}', [UserController::class, 'mycontactdestroy'])->name('mycontacts.destroy');
 
     }); // END GROUP USER MIDDLEWARE
 
