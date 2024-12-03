@@ -8,23 +8,19 @@ use App\Http\Controllers\LocalController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\VesselController;
-use App\Http\Middleware\Localization;
-use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\ExportController;
-
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AgentController;
-
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\UserController;
+
+use App\Http\Middleware\Localization;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/localization/{locale}', LocalizationController::class)->name('localization');
 
