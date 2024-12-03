@@ -173,9 +173,9 @@
                                         @if ($reserve->status == 'Pendent')
                                             <span class="badge badge-danger">{{ __('backend/Pages/reserves.pending') }}</span>
                                         @elseif ($reserve->status == 'Waiting')
-                                            <span class="badge badge-warning">{{ GoogleTranslate::trans('Reserva pendente', app()->getLocale()) }}</span>
+                                            <span class="badge badge-warning">{{ __('backend/Pages/reserves.pending') }}</span>
                                         @else
-                                            <span class="badge badge-success">{{ GoogleTranslate::trans('Reserva ativa', app()->getLocale()) }}</span>
+                                            <span class="badge badge-success">{{ __('backend/Pages/reserves.active') }}</span>
                                         @endif
                                     </td>
                                 </tr>
