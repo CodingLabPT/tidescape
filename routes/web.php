@@ -65,28 +65,23 @@ Route::middleware(Localization::class)->group(function(){
     Route::get('/register2/{id}', [RegisterController::class, 'register'])->name('register.index');
     Route::post('/registerStore', [RegisterController::class, 'store'])->name('register.store');
 
-
-    /**
-     * Dashboard
-     */
-    /*
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-
-    })->middleware(['auth', 'verified'])->name('dashboard');
-    */
-
     Route::middleware('auth')->group(function () {
 
+        /* PROFILE ROUTES */
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-        Route::post('/checkout', [ReserveController::class, 'store'])->name('reserves.store');
-
+        /* RESERVE PROCESS (CHOOSE TOUR / DAY / TIME / BOAT) */
         Route::post('/success/{reserve}', [ReserveController::class, 'successReserve'])->name('reserves.success');
 
+        /* CHECHOUT (FINAL STEP / CONFIRM INFORMATION) */
+        Route::post('/checkout', [ReserveController::class, 'store'])->name('reserves.store');
+
+        /* ADMIN RESERVE STORE */
         Route::post('reserve/store', [ReserveController::class, 'reserveStore'])->name('admin.reserves.store');
+
+        /* ADMIN RESERVE VALIDATE */
         Route::any('/validate/{reserve}', [ReserveController::class, 'validateReserve'])->name('reserves.validate');
     });
 
@@ -192,17 +187,6 @@ Route::middleware(Localization::class)->group(function(){
 
 
     }); // END GROUP ADMIN MIDDLEWARE
-
-    /*
-    Route::middleware(['auth','role:agent'])->group(function() {
-        Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
-        Route::get('/agent/logout', [AgentController::class, 'AgentLogout'])->name('agent.logout');
-    }); // END GROUP AGENT MIDDLEWARE
-
-
-    Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
-    Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login');
-    */
 
 });
 
