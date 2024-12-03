@@ -89,15 +89,20 @@ Route::middleware(Localization::class)->group(function(){
 
     Route::middleware(['auth','role:user'])->group(function(){
 
+
+        /* USER DASHBOARD PAGES*/
+
         Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
 
-        Route::get('/dashboard/mycalendary', [UserController::class, 'mycalendaryshow'])->name('mycalendarys.show');
-
+        /* MY RESERVATIONS */
         Route::get('/dashboard/myreservations', [UserController::class, 'myreservesshow'])->name('myreservations.show');
         Route::get('/dashboard/myreservations/details/{reservation}', [UserController::class, 'myreservesdetails'])->name('myreserves.details');
         Route::get('/dashboard/myreservations/delete/{reservation}', [UserController::class, 'myreservedestroy'])->name('myreserves.destroy');
 
+        /* MY CALENDARY */
+        Route::get('/dashboard/mycalendary', [UserController::class, 'mycalendaryshow'])->name('mycalendarys.show');
 
+        /* MY CONTACTS */
         Route::get('/dashboard/mycontacts', [UserController::class, 'mycontactsshow'])->name('mycontacts.show');
         Route::get('/dashboard/mycontacts/details/{contact}', [UserController::class, 'mycontactsdetails'])->name('mycontacts.details');
         Route::get('/dashboard/mycontacts/delete/{contact}', [UserController::class, 'mycontactdestroy'])->name('mycontacts.destroy');
@@ -108,7 +113,7 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
         Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 
-        /* ADMIN DASH PAGES*/
+        /* ADMIN DASHBOARD PAGES*/
 
         /* RESERVATIONS */
         Route::get('/reservations', [ReserveController::class, 'show'])->name('reservations.show');
@@ -175,7 +180,6 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create');
         Route::post('brands/store', [BrandController::class, 'store'])->name('brands.store');
 
-
         /* EXPORT EXCEL ROUTES */
         Route::get('/export/users', [ExportController::class, 'exportUsers'])->name('export.users');
         Route::get('/export/newsletters', [ExportController::class, 'exportNewsletters'])->name('export.newsletters');
@@ -185,12 +189,13 @@ Route::middleware(Localization::class)->group(function(){
 
     }); // END GROUP ADMIN MIDDLEWARE
 
+    /*
     Route::middleware(['auth','role:agent'])->group(function() {
         Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
         Route::get('/agent/logout', [AgentController::class, 'AgentLogout'])->name('agent.logout');
     }); // END GROUP AGENT MIDDLEWARE
 
-    /*
+
     Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
     Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login');
     */
