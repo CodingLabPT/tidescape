@@ -197,11 +197,11 @@
                                     <td>{{ __('backend/Pages/reserves.Status') }}</td>
                                     <td class="text-end">
                                         @if ($reserve->status == 'Pendent')
-                                            <span class="badge bg-danger">{{ GoogleTranslate::trans('Pendente', app()->getLocale()) }}</span>
+                                            <span class="badge bg-danger">{{ __('backend/Pages/reserves.pending') }}</span>
                                         @elseif($reserve->status == 'Waiting')
-                                            <span class="badge bg-warning">{{ GoogleTranslate::trans('Aguardando', app()->getLocale()) }}</span>
+                                            <span class="badge bg-warning">{{ __('backend/Pages/reserves.waiting') }}</span>
                                         @else
-                                            <span class="badge bg-success">{{ GoogleTranslate::trans('Activa', app()->getLocale()) }}</span>
+                                            <span class="badge bg-success">{{ __('backend/Pages/reserves.active') }}</span>
                                         @endif
                                     </td>
                                 </tr>
@@ -210,19 +210,19 @@
                     </div>
 
                     @if($reserve->status == 'Waiting')
-                        <form action="{{ route('reserves.validate', $reserve->id]) }}" method="POST" class="mt-2">
+                        <form action="{{ route('reserves.validate', $reserve->id) }}" method="POST" class="mt-2">
                                 @method('PUT')
                                 @csrf
                                 <div style="display: flex; justify-content: right; align-items: center; gap: 5px">
                                     <div>
-                                        <span>{{ GoogleTranslate::trans('Validar a reserva', app()->getLocale()) }}</span>
+                                        <span>{{ __('backend/Pages/reserves.validate') }}</span>
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" name="validate" id="validate">
                                     </div>
                                 </div>
                                 <div style="display: flex; justify-content: right; align-items: center">
-                                    <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-check"></i> {{ GoogleTranslate::trans('confirmar a validação', app()->getLocale()) }}</button>
+                                    <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-check"></i> {{ __('backend/Pages/reserves.validate') }}</button>
                                 </div>
                         </form>
                     @endif

@@ -181,7 +181,6 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('/export/contacts', [ExportController::class, 'exportContacts'])->name('export.contacts');
         Route::get('/export/reservations', [ExportController::class, 'exportReservations'])->name('export.reservations');
 
-
     }); // END GROUP ADMIN MIDDLEWARE
 
 });
