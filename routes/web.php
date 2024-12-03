@@ -83,7 +83,7 @@ Route::middleware(Localization::class)->group(function(){
 
         Route::post('/success/{reserve}', [ReserveController::class, 'successReserve'])->name('reserves.success');
 
-        Route::post('reserve/store', [ReserveController::class, 'reserveStore'])->name('admin.reserve.store');
+        Route::post('reserve/store', [ReserveController::class, 'reserveStore'])->name('admin.reserves.store');
         Route::any('/validate/{reserve}', [ReserveController::class, 'validateReserve'])->name('reserves.validate');
     });
 

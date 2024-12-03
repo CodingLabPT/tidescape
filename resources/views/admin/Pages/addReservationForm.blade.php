@@ -129,7 +129,7 @@
                         <p>{{ __('home/question.add_new_reserve') }}</p>
                     </div>
                     <br>
-                    <form method="POST" id="boatForm" name="boatForm" action="{{ route('admin.reserve.store') }}" data_funcoes_url="{{ route('admin.reserve.store') }}">
+                    <form method="POST" id="boatForm" name="boatForm" action="{{ route('admin.reserves.store') }}" data_funcoes_url="{{ route('admin.reserve.store') }}">
                         @csrf
                         <fieldset class="mb-4 border rounded p-4" style="border-color: #c2c2c2;">
                             <legend class="w-auto px-2">{{ __('home/question.personal_info') }}</legend>
