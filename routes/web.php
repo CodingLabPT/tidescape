@@ -30,8 +30,6 @@ Route::get('/localization/{locale}', LocalizationController::class)->name('local
 
 Route::middleware(Localization::class)->group(function(){
 
-
-
     /* FRONTEND
     */
 
@@ -110,24 +108,36 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
         Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 
-        /* ADMIN DASH PAGES
-        */
+        /* ADMIN DASH PAGES*/
+
+        /* RESERVATIONS */
         Route::get('/reservations', [ReserveController::class, 'show'])->name('reservations.show');
         Route::get('reservations/create', [ReserveController::class, 'create'])->name('reservations.create');
         Route::get('reservations/details/{reserve}', [ReserveController::class, 'details'])->name('reservations.details');
         Route::get('reservations/delete/{reserve}', [ReserveController::class, 'delete'])->name('reservations.destroy');
 
+        /* CALENDARY */
         Route::get('/calendary', [CalendaryController::class, 'show'])->name('calendarys.show');
 
+        /* ADMINS */
         Route::get('/admins', [AdminController::class, 'show'])->name('admins.show');
+        Route::get('admins/delete/{admin}', [AdminController::class, 'destroy'])->name('admins.destroy');
+
+        /* CLIENTS */
         Route::get('/clients', [ClientsController::class, 'show'])->name('clients.show');
+        Route::get('clients/delete/{client}', [ClientsController::class, 'destroy'])->name('clients.destroy');
+
+        /* NEWSLETTERS */
         Route::get('/newsletters', [NewsletterController::class, 'show'])->name('newsletters.show');
+        Route::get('newsletters/delete/{newsletter}', [NewsletterController::class, 'destroy'])->name('newsletters.destroy');
+
+        /* CONTACTS */
         Route::get('/allcontacts', [ContactController::class, 'allcontactsShow'])->name('allcontacts.show');
-
         Route::get('allcontacts/details/{contact}', [ContactController::class, 'details'])->name('allcontacts.details');
+        Route::put('/allcontacts/update/{contact}', [ContactController::class, 'edit'])->name('allcontacts.update');
+        Route::get('allcontacts/delete/{contacts}', [ContactController::class, 'destroy'])->name('allcontacts.destroy');
 
-        /* TOURS
-        */
+        /* TOURS */
         Route::get('/tours', [TourController::class, 'show'])->name('tours.show');
         Route::get('tours/create', [TourController::class, 'create'])->name('tours.create');
         Route::post('tours/store', [TourController::class, 'store'])->name('tours.store');
@@ -135,13 +145,7 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('tours/details/{tour}', [TourController::class, 'details'])->name('tours.details');
         Route::put('/tours/update/{tour}', [TourController::class, 'edit'])->name('tours.update');
 
-        /* CONTACTS
-        */
-        Route::put('/allcontacts/update/{contact}', [ContactController::class, 'edit'])->name('allcontacts.update');
-
-
-        /* LOCALS
-        */
+        /* LOCALS */
         Route::get('/locals', [LocalController::class, 'show'])->name('locals.show');
         Route::get('locals/create', [LocalController::class, 'create'])->name('locals.create');
         Route::post('locals/store', [LocalController::class, 'store'])->name('locals.store');
@@ -149,8 +153,7 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('locals/details/{local}', [LocalController::class, 'details'])->name('locals.details');
         Route::put('/locals/update/{locals}', [LocalController::class, 'edit'])->name('locals.update');
 
-        /* DURATIONS
-        */
+        /* DURATIONS */
         Route::get('/durations', [DurationController::class, 'show'])->name('durations.show');
         Route::get('durations/create', [DurationController::class, 'create'])->name('durations.create');
         Route::post('durations/store', [DurationController::class, 'store'])->name('durations.store');
@@ -158,8 +161,7 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('durations/details/{duration}', [DurationController::class, 'details'])->name('durations.details');
         Route::put('/duration/update/{duration}', [DurationController::class, 'edit'])->name('durations.update');
 
-        /* MANAGEMENT BOATS
-        */
+        /* MANAGEMENT BOATS */
         Route::get('/boats', [VesselController::class, 'show'])->name('boats.show');
         Route::get('boats/create', [VesselController::class, 'create'])->name('boats.create');
         Route::post('boats/store', [VesselController::class, 'store'])->name('boats.store');
@@ -167,25 +169,14 @@ Route::middleware(Localization::class)->group(function(){
         Route::get('boats/details/{boat}', [VesselController::class, 'details'])->name('boats.details');
         Route::put('boats/update/{boat}', [VesselController::class, 'edit'])->name('boats.update');
 
-
-        /* BRANDS
-        */
+        /* BRANDS */
         Route::get('/brands', [BrandController::class, 'show'])->name('brands.show');
         Route::get('brands/delete/{brand}', [BrandController::class, 'destroy'])->name('brands.destroy');
         Route::get('brands/create', [BrandController::class, 'create'])->name('brands.create');
         Route::post('brands/store', [BrandController::class, 'store'])->name('brands.store');
 
 
-        /* DELETE ROUTES
-        */
-        Route::get('clients/delete/{client}', [ClientsController::class, 'destroy'])->name('clients.destroy');
-        Route::get('admins/delete/{admin}', [AdminController::class, 'destroy'])->name('admins.destroy');
-        Route::get('newsletters/delete/{newsletter}', [NewsletterController::class, 'destroy'])->name('newsletters.destroy');
-        Route::get('allcontacts/delete/{contacts}', [ContactController::class, 'destroy'])->name('allcontacts.destroy');
-
-
-        /* EXPORT EXCEL ROUTES
-        */
+        /* EXPORT EXCEL ROUTES */
         Route::get('/export/users', [ExportController::class, 'exportUsers'])->name('export.users');
         Route::get('/export/newsletters', [ExportController::class, 'exportNewsletters'])->name('export.newsletters');
         Route::get('/export/contacts', [ExportController::class, 'exportContacts'])->name('export.contacts');
