@@ -64,7 +64,7 @@
                         <h4 class="breadcrumb-contents-title"> Dashboard </h4>
                         <ul class="breadcrumb-contents-list list-style-none">
                             <li class="breadcrumb-contents-list-item"> <a href="{{ route('admin.dashboard') }}" class="breadcrumb-contents-list-item-link"> Home </a> </li>
-                            <li class="breadcrumb-contents-list-item"> {{ GoogleTranslate::trans('Lista de localidades', app()->getLocale()) }} </li>
+                            <li class="breadcrumb-contents-list-item"> {{ __('backend/Pages/locals.title') }} </li>
                         </ul>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                 <div class="dashboard-right-contents mt-4 mt-lg-0" style="border-radius:5px">
                     <div class="breadcrumb-contents">
                         <p>{{ __('backend/Pages/locals.title') }}</p>
-                        <a href="{{ route('locals.create') }}"><i title="Add Local" style="font-size: 30px" class="las la-plus-circle"></i></a>
+                        <a href="{{ route('locals.create') }}"><i title="{{ __('backend/Pages/locals.details') }}" style="font-size: 30px" class="las la-plus-circle"></i></a>
                     </div>
                     <br><br>
                     @if (count($locals) == 0)

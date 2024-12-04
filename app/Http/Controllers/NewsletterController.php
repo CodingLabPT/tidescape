@@ -14,7 +14,6 @@ class NewsletterController extends Controller
 {
     public function store(Request $request)
     {
-        // Traduzir a mensagem de erro usando GoogleTranslate
         $emailUniqueMessage = __('mensages.newsletter_error');
         $emailSuccessMessage = __('mensages.newsletter_success');
 

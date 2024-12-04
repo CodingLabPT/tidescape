@@ -1,12 +1,12 @@
 <?php
 
 return [
-    "title" => "Lista de Locais",
+    "title" => "Lista de Localidades",
     'export' => 'Exportar Dados',
     'no_locales' => 'Não há locais disponíveis no momento.',
     'name' => 'Nome',
     'phone' => 'Telefone',
-    'boat' => 'Barco desejado',
+    'boat' => 'Embarcação desejada',
     'day' => 'Dia / Hora',
     'status' => 'Estado',
     'opt' => 'Opções',

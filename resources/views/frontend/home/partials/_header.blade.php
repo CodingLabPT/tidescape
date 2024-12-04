@@ -105,11 +105,11 @@
                         <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                             @auth
                                 @if ($user->role === 'admin')
-                                    <a title="{{ __('menu.dashboard') }}" style="color:white" href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"><i class="fas fa-tachometer-alt"></i> {{ GoogleTranslate::trans('Admin dashboard', app()->getLocale()) }}</a>
+                                    <a title="{{ __('menu.dashboard') }}" style="color:white" href="{{ route('admin.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"><i class="fas fa-tachometer-alt"></i> {{ __('menu.dashboard') }}</a>
                                 @elseif ($user->role === 'agent')
-                                    <a title="Agent dashboard" style="color:white" href="{{ route('agent.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"><i class="fas fa-tachometer-alt"></i> {{ GoogleTranslate::trans('Agent dashboard', app()->getLocale()) }}</a>
+                                    <a title="{{ __('menu.dashboard') }}" style="color:white" href="{{ route('agent.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"><i class="fas fa-tachometer-alt"></i> {{ __('menu.dashboard') }}</a>
                                 @else
-                                    <a title="Dashboard" style="color:white" href="{{ route('user.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"><i class="fas fa-tachometer-alt"></i> {{ GoogleTranslate::trans('User dashboard', app()->getLocale()) }}</a>
+                                    <a title="{{ __('menu.dashboard') }}" style="color:white" href="{{ route('user.dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"><i class="fas fa-tachometer-alt"></i> {{ __('menu.dashboard') }}</a>
                                 @endif
                             @else
                                 <a style="color:white" href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('menu.log_in') }}</a> &nbsp;&nbsp;&nbsp;

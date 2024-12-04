@@ -32,14 +32,16 @@
                         </select>
                     </div>
                 </div>
+                {{--
                 <h3>{{ GoogleTranslate::trans('Welcome to Laravel', app()->getLocale()) }}</h3>
                 <h3>{{ GoogleTranslate::trans('Hello World', app()->getLocale()) }}</h3>
                 <h3>{{ GoogleTranslate::trans('Seja bem vindo Mario', app()->getLocale()) }}</h3>
+                --}}
             </div>
         </div>
     </div>
 </body>
-    
+
 <script type="text/javascript">
     var url = "{{ route('changeLang') }}";
     $(".changeLang").change(function(){
