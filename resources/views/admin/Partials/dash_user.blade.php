@@ -1,12 +1,3 @@
-<style>
-
-    .active {
-        color: #FF8C32;
-        text-decoration: none; font-size:16px; display:block; text-align:left; margin-left:15px
-    }
-
-    </style>
-
     <div class="dashboard-left-content">
         <div class="dashboard-close-main">
             <div class="close-bars"> <i class="las la-times"></i> </div>
@@ -17,38 +8,39 @@
                     </li>
 
                     <br>
-                         @php
-                            $actual_link = url()->current();
-                        @endphp
-                    <li class="">
-                        <h6 style="display:block; text-align:left; padding: 2px 15px; font-size: 16px; font-weight:bold" href="/dashboard"><i class="fas fa-calendar-check"></i> {{ __('backend/userSidebar.booking_management') }}</h6>
+                    @php
+                    $actual_link = url()->current();
+                    $links = [
+                        [
+                            'route' => 'myreservations.show',
+                            'icon' => 'fas fa-calendar-check',
+                            'label' => __('backend/userSidebar.my_booking'),
+                            'url' => 'https://tidescape.pt/dashboard/myreservations'
+                        ],
+                        [
+                            'route' => 'mycalendarys.show',
+                            'icon' => 'fas fa-calendar',
+                            'label' => __('backend/userSidebar.calendar'),
+                            'url' => 'https://tidescape.pt/dashboard/mycalendary'
+                        ]
+                    ];
+                @endphp
 
-                        <?php
-                        if ($actual_link === 'https://tidescape.pt/dashboard/myreservations') {
-                        ?>
-                        <h6> <a class="active" style=""  href="{{ route('myreservations.show') }}"><i class="fas fa-calendar-check"></i> {{ __('backend/userSidebar.my_booking') }}</a> </h6>
-                        <?php
-                        } else {
-                        ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px"  href="{{ route('myreservations.show') }}"><i class="fas fa-calendar-check"></i> {{ __('backend/userSidebar.my_booking') }}</a> </h6>
-                        <?php
-                        }
-                        ?>
+                <li>
+                    <h6 style="display:block; text-align:left; padding: 2px 15px; font-size: 16px; font-weight:bold">
+                        <i class="fas fa-calendar-check"></i> {{ __('backend/userSidebar.booking_management') }}
+                    </h6>
 
-                        <?php
-                        if ($actual_link === 'https://tidescape.pt/dashboard/mycalendary') {
-                        ?>
-                        <h6> <a class="active" style=""  href="{{ route('mycalendarys.show') }}"><i class="fas fa-calendar"></i> {{ __('backend/userSidebar.calendar') }}</a> </h6>
-                        <?php
-                        } else {
-                        ?>
-                        <h6> <a style="text-decoration: none; color:black; font-size:16px; display:block; text-align:left; margin-left:15px"  href="{{ route('mycalendarys.show') }}"><i class="fas fa-calendar"></i> {{ __('backend/userSidebar.calendar') }}</a> </h6>
-                        <?php
-                        }
-                        ?>
-
-
-                    </li>
+                    @foreach ($links as $link)
+                        <h6>
+                            <a class="{{ $actual_link === $link['url'] ? 'active' : '' }}"
+                               style="text-decoration: none; color: {{ $actual_link === $link['url'] ? 'blue' : 'black' }}; font-size: 16px; display: block; text-align: left; margin-left: 15px;"
+                               href="{{ route($link['route']) }}">
+                                <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
+                            </a>
+                        </h6>
+                    @endforeach
+                </li>
 
                     <br>
 
