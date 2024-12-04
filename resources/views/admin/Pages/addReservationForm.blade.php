@@ -129,7 +129,7 @@
                         <p>{{ __('home/question.add_new_reserve') }}</p>
                     </div>
                     <br>
-                    <form method="POST" id="boatForm" name="boatForm" action="{{ route('admin.reserves.store') }}" data_funcoes_url="{{ route('admin.reserve.store') }}">
+                    <form method="POST" id="boatForm" name="boatForm" action="{{ route('admin.reserves.store') }}" data_funcoes_url="{{ route('admin.reserves.store') }}">
                         @csrf
                         <fieldset class="mb-4 border rounded p-4" style="border-color: #c2c2c2;">
                             <legend class="w-auto px-2">{{ __('home/question.personal_info') }}</legend>
@@ -189,8 +189,8 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> {{ __('backend/Pages/addTourForm.submit_btn') }}</button>
-                            <a title="Go Back" class="btn btn-secondary" href="{{ URL::previous() }}">
+                            <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> {{ __('backend/Pages/addTourForm.submit_btn') }}</button>
+                            <a title="Go Back" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}">
                                 <i class="fas fa-arrow-left"></i> {{ __('backend/Pages/reserves.go_back') }}
                             </a>
                         </div>

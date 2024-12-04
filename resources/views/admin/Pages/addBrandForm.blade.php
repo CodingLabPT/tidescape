@@ -161,10 +161,10 @@
                             <input placeholder="{{ __('backend/Pages/addBrandForm.url_placeholder') }}" type="text" class="form-control" id="url" name="url" required>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <button style="background-color: #0B5ED7" type="submit" class="btn btn-primary">
+                            <button style="background-color: #0B5ED7" type="submit" class="btn btn-primary btn-sm">
                                 <i class="fas fa-plus"></i> {{ __('backend/Pages/addBrandForm.submit_btn') }}
                             </button>
-                            <a title="Go Back" class="btn btn-secondary" href="{{ URL::previous() }}">
+                            <a title="Go Back" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}">
                                 <i class="fas fa-arrow-left"></i> {{ __('backend/Pages/addBrandForm.go_back_btn') }}
                             </a>
                         </div>

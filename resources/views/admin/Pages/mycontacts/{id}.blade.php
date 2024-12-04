@@ -152,7 +152,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <a title="Go Back" class="btn btn-secondary" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i>{{ __('backend/Pages/messages.go_back') }}</a>
+                    <a title="Go Back" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i>{{ __('backend/Pages/messages.go_back') }}</a>
                 </div>
 
             </div>

@@ -120,10 +120,10 @@
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-between">
-                            <button title="{{ __('backend/Pages/locals.update') }}" type="submit" class="btn btn-success">
+                            <button title="{{ __('backend/Pages/locals.update') }}" type="submit" class="btn btn-success btn-sm">
                                 <i class="fas fa-sync-alt"></i> {{ __('backend/Pages/locals.update') }}
                             </button>
-                            <a title="Go Back" class="btn btn-secondary" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i>{{ __('backend/Pages/locals.go_back') }}</a>
+                            <a title="Go Back" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i>{{ __('backend/Pages/locals.go_back') }}</a>
                         </div>
                     </div>
                     </form>

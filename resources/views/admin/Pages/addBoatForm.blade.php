@@ -183,10 +183,10 @@
                             <textarea class="form-control" placeholder="{{ __('backend/Pages/addBoatForm.desc_placeholder') }}" id="obs" name="obs" style="height: 100px" required></textarea>
                         </div>
                         <div class="d-flex justify-content-between">
-                            <button style="background-color: #0B5ED7" type="submit" class="btn btn-primary">
+                            <button style="background-color: #0B5ED7" type="submit" class="btn btn-primary btn-sm">
                                 <i class="fas fa-plus"></i> {{ __('backend/Pages/addBoatForm.submit_btn') }}
                             </button>
-                            <a title="Go Back" class="btn btn-secondary" href="{{ URL::previous() }}">
+                            <a title="Go Back" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}">
                                 <i class="fas fa-arrow-left"></i> {{ __('backend/Pages/addBoatForm.go_back_btn') }}
                             </a>
                         </div>

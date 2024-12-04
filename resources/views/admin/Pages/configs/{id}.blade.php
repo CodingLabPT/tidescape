@@ -151,8 +151,8 @@
                             </div>
                         </table>
                         <div class="d-flex justify-content-between">
-                            <button title="{{ __('backend/Pages/configs.update') }}" type="submit" style="background-color: #146C43" type="button" class="btn btn-success"><i class="fas fa-sync-alt"></i>{{ __('backend/Pages/configs.update') }}</button>
-                            <a title="Go Back" class="btn btn-secondary" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i>{{ __('backend/Pages/configs.go_back') }}</a>
+                            <button title="{{ __('backend/Pages/configs.update') }}" type="submit" style="background-color: #146C43" type="button" class="btn btn-success btn-sm"><i class="fas fa-sync-alt"></i>{{ __('backend/Pages/configs.update') }}</button>
+                            <a title="Go Back" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i>{{ __('backend/Pages/configs.go_back') }}</a>
                         </div>
                     </form>
                 </div>

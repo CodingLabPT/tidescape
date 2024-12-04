@@ -229,10 +229,10 @@
                             </tr>
                         </table>
                         <div class="d-flex justify-content-between">
-                            <button title="Update tour" type="submit" style="background-color: #146C43" class="btn btn-success">
+                            <button title="Update tour" type="submit" style="background-color: #146C43" class="btn btn-success btn-sm">
                                 <i class="fas fa-sync-alt"></i> {{ __('backend/Pages/tours.update') }}
                             </button>
-                            <a title="Go Back" class="btn btn-secondary" href="{{ URL::previous() }}">
+                            <a title="Go Back" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}">
                                 <i class="fas fa-arrow-left"></i> {{ __('backend/Pages/tours.go_back') }}
                             </a>
                         </div>

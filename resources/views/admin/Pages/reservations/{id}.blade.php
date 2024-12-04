@@ -222,7 +222,7 @@
                                     </div>
                                 </div>
                                 <div style="display: flex; justify-content: right; align-items: center">
-                                    <button type="submit" class="btn btn-primary mt-2"><i class="fas fa-check"></i> {{ __('backend/Pages/reserves.validate') }}</button>
+                                    <button type="submit" class="btn btn-primary mt-2 btn-sm"><i class="fas fa-check"></i> {{ __('backend/Pages/reserves.validate') }}</button>
                                 </div>
                         </form>
                     @endif
@@ -230,7 +230,7 @@
                     <table style="width: 100%">
                         <tr>
                             <td style="text-align: left">
-                                <a title="Go Back" class="btn btn-secondary" href="{{ URL::previous() }}">
+                                <a title="Go Back" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}">
                                     <i class="fas fa-arrow-left"></i> {{ __('backend/Pages/reserves.go_back') }}
                                 </a>
                             </td>

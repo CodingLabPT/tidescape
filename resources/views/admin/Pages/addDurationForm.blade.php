@@ -97,8 +97,8 @@ input, textarea, select, fieldset, button {
                                         <input placeholder="{{ __('backend/Pages/addDurationForm.name_placeholder') }}" type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" required>
                                     </div>
                                     <div class="d-flex justify-content-between">
-                                        <button style="background-color: #0B5ED7" type="submit" class="btn btn-primary"><i class="fas fa-plus"></i>{{ __('backend/Pages/addDurationForm.submit_btn') }}</button>
-                                        <a title="Go Back" class="btn btn-secondary" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i> {{ __('backend/Pages/addDurationForm.go_back_btn') }}</a>
+                                        <button style="background-color: #0B5ED7" type="submit" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>{{ __('backend/Pages/addDurationForm.submit_btn') }}</button>
+                                        <a title="Go Back" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i> {{ __('backend/Pages/addDurationForm.go_back_btn') }}</a>
                                     </div>
                                 </form>
                             </div>

@@ -2,92 +2,102 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
 
-    .table-responsive {
+        .table-header {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2em;
+        }
 
-}
+        .badge {
+            display: inline-block;
+            font-weight: normal !important;
+            padding: .35em .65em;
+            font-size: .75em;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25rem;
+        }
 
-.table-header {
-    background-color: #f8f9fa;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px;
-    font-size: 1.2em;
-}
+        .badge-danger {
+            background-color: #dc3545;
+        }
 
-.table {
-    width: 100%;
-    border-collapse: collapse;
-}
+        .badge-warning {
+            background-color: #ffc107;
+            color: #212529;
+        }
 
-.table th, .table td {
-    padding: 12px;
-}
+        .badge-success {
+            background-color: #28a745;
+        }
 
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f2f2f2;
-}
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-.table-hover tbody tr:hover {
-    background-color: #e9ecef;
-}
+        .table th, .table td {
+            padding: 12px;
+        }
 
-.text-right {
-    text-align: right;
-}
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f2f2f2;
+        }
 
-.alert {
-    margin: 0;
-    padding: 5px;
-    border-radius: 4px;
-}
+        .table-hover tbody tr:hover {
+            background-color: #e9ecef;
+        }
 
-.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-}
+        .text-right {
+            text-align: right;
+        }
 
-.alert-success {
-    background-color: #d4edda;
-    color: #155724;
-}
+        .alert {
+            margin: 0;
+            padding: 5px;
+            border-radius: 4px;
+        }
 
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
-}
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-}
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
 
-.mt-2 {
-    margin-top: 0.5rem;
-}
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+        }
 
-.float-right {
-    float: right;
-}
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
 
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
 
+        .float-right {
+            float: right;
+        }
 
 
         .btn i {
-    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
-}
+            margin-right: 5px; /* Espaçamento entre o ícone e o texto */
+        }
 
         input, select {
             width: 100%;
@@ -99,6 +109,17 @@
         }
 
     </style>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     @include('components._styles')
     <!-- Scripts -->
@@ -150,9 +171,9 @@
                     <div class="breadcrumb-contents">
                         <p>{{ __('backend/Pages/messages.detalles_del_contacto') }} <em> <strong> {{ $contact->fn }} {{ $contact->ln }} </strong> (#{{ $contact->id }}) </em></p>
                         @if ($contact->status === 'Pendent')
-                            <p class="alert alert-danger" style="color: #721C24"> <em> <strong> {{ __('backend/Pages/messages.pending') }} </strong> </em> </p>
+                            <p class="badge badge-danger"> <em> <strong> {{ __('backend/Pages/messages.pending') }} </strong> </em> </p>
                         @else
-                            <p class="alert alert-success" style="color: #155724"> <em> <strong> {{ __('backend/Pages/messages.solved') }} </strong> </em> </p>
+                            <p class="badge badge-success"> <em> <strong> {{ __('backend/Pages/messages.solved') }} </strong> </em> </p>
                         @endif
 
                     </div>
@@ -191,7 +212,7 @@
                                             <textarea class="form-control" name="response" id="response" cols="30" rows="5" required placeholder="{{ __('backend/Pages/messages.type_text_here') }}"></textarea>
                                             <input type="hidden" name="message" id="message" value="{{ $contact->message }}">
                                             <input type="hidden" name="email" id="email" value="{{ $contact->email }}">
-                                            <button style="background-color: #0B5ED7" title="Send response" class="btn btn-primary mt-2 float-right" type="submit"><i class="fas fa-paper-plane"></i> {{ __('backend/Pages/messages.send') }}</button>
+                                            <button style="background-color: #0B5ED7" title="Send response" class="btn btn-primary btn-sm mt-2 float-right" type="submit"><i class="fas fa-paper-plane"></i> {{ __('backend/Pages/messages.send') }}</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -199,7 +220,7 @@
                             </tbody>
                             </table>
                     </div>
-                    <a title="{{ __('backend/Pages/messages.go_back ') }}" class="btn btn-secondary" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i>{{ __('backend/Pages/messages.go_back') }}</a>
+                    <a title="{{ __('backend/Pages/messages.go_back ') }}" class="btn btn-secondary btn-sm" href="{{ URL::previous() }}"><i class="fas fa-arrow-left"></i>{{ __('backend/Pages/messages.go_back') }}</a>
                 </div>
                 <!--------------------------->
             </div>
