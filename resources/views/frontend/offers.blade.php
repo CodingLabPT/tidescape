@@ -517,7 +517,7 @@
                                       <p class="card-text"><i class="fas fa-clock"></i> {{ $tour->duration }}</p>
                                       <br>
                                       <div style="display: flex; justify-content: space-between">
-                                        <p class="" style="color:#0B5ED7"><em>{{ GoogleTranslate::trans('Since', app()->getLocale()) }} {{ $tour->price }}€</em></p>
+                                        <p class="" style="color:#0B5ED7"><em>{{ __('home/tours.since') }} {{ $tour->price }}€</em></p>
                                         <div class="btn-wrapper">
                                             <a href="{{ route('property', ['id' => $tour->id, 'name' => Str::slug($tour->name)]) }}" class="btn btn-primary btn-sm"> <i class="fas fa-book-open"></i> {{ GoogleTranslate::trans('Book Now', app()->getLocale()) }} </a>
                                         </div>
