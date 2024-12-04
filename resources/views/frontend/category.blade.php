@@ -519,7 +519,7 @@
                                       <div style="display: flex; justify-content: space-between">
                                         <p class="" style="color:#0B5ED7"><em>{{ __('home/tours.since') }} {{ $tour->price }}€</em></p>
                                         <div class="btn-wrapper">
-                                            <a href="{{ route('property', ['id' => $tour->id, 'name' => Str::slug($tour->name)]) }}" class="btn btn-primary btn-sm"> <i class="fas fa-book-open"></i> {{ GoogleTranslate::trans('Book Now', app()->getLocale()) }} </a>
+                                            <a href="{{ route('property', ['id' => $tour->id, 'name' => Str::slug($tour->name)]) }}" class="btn btn-primary btn-sm"> <i class="fas fa-book-open"></i> {{ __('home/tours.book_now') }} </a>
                                         </div>
                                       </div>
                                     </div>
@@ -548,7 +548,7 @@
                                       <div style="display: flex; justify-content: space-between">
                                         <p class="" style="color:#0B5ED7"><em>Since {{ $tour->price }}€</em></p>
                                         <div class="btn-wrapper">
-                                            <a href="{{ route('property', ['id' => $tour->id, 'name' => Str::slug($tour->name)]) }}" class="btn btn-primary btn-sm"> Book Now </a>
+                                            <a href="{{ route('property', ['id' => $tour->id, 'name' => Str::slug($tour->name)]) }}" class="btn btn-primary btn-sm"> {{ __('home/tours.book_now') }} </a>
                                         </div>
                                       </div>
                                     </div>
