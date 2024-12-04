@@ -90,7 +90,7 @@
                     <div class="dashboard-promo">
                         <div class="row gy-4 justify-content-center">
                             <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                                <a href="{{ url('admin/dashboard/tours') }}" style="text-decoration: none;">
+                                <a href="{{ route('tours.show') }}" style="text-decoration: none;">
                                 <div class="single-order">
                                     <div class="single-order-flex">
                                         <div class="single-order-contents">
@@ -106,7 +106,7 @@
                             </div>
 
                             <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                                <a href="{{ url('admin/dashboard/reservations') }}" style="text-decoration: none;">
+                                <a href="{{ route('reservations.show') }}" style="text-decoration: none;">
                                 <div class="single-order">
                                     <div class="single-order-flex">
                                         <div class="single-order-contents">
@@ -122,7 +122,7 @@
                             </div>
 
                             <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                                <a href="{{ url('admin/dashboard/newsletters') }}" style="text-decoration: none;">
+                                <a href="{{ route('newsletters.show') }}" style="text-decoration: none;">
                                 <div class="single-order">
                                     <div class="single-order-flex">
                                         <div class="single-order-contents">
@@ -138,7 +138,7 @@
                             </div>
 
                             <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                                <a href="{{ url('admin/dashboard/clients') }}" style="text-decoration: none;">
+                                <a href="{{ route('clients.show') }}" style="text-decoration: none;">
                                 <div class="single-order">
                                     <div class="single-order-contents">
                                         <span class="single-order-contents-subtitle"> {{ __('backend/Pages/configs.users') }} </span>

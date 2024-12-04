@@ -17,7 +17,7 @@
             <div class="dashboard-bottom">
                 <ul class="dashboard-list list-style-none">
                     <li class="list active">
-                        <a style="text-decoration:none;" href="/admin/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard </a>
+                        <a style="text-decoration:none;" href="/admin/dashboard"><i class="fas fa-tachometer-alt"></i> {{ __('menu.dashboard') }} </a>
                     </li>
 
                     <br>
