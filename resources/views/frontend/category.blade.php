@@ -476,7 +476,7 @@
 
                         <div class="shop-close-content" >
                             <div class="single-shop-left bg-white radius-10 mt-4">
-                                <button type="reset" onclick="window.location.href = '/category'" class="btn btn-secondary">
+                                <button type="reset" onclick="window.location.href = '/category'" class="btn btn-secondary btn-sm">
                                     {{ __('category.clear_filters') }}
                                 </button>
                             </div>
