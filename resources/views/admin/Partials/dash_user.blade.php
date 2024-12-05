@@ -97,6 +97,11 @@
         cursor: pointer;
     }
 
+    .arrow-icon {
+        float: right; /* Empurra o ícone para a direita */
+        transition: transform 0.3s; /* Transição suave para a rotação */
+    }
+
     .dashboard-link {
         text-decoration: none;
         color: black;
