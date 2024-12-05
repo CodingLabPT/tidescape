@@ -4,15 +4,29 @@
 <head>
 
     <style>
-          @media only screen and (max-width: 1398.98px) {
-    div.breadcrumb-contents {
-        margin-top: -16px !important;
-    }
-  }
 
-      .btn i {
-    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
-}
+    @media only screen and (max-width: 1398.98px) {
+        div.breadcrumb-contents {
+            margin-top: -16px !important;
+        }
+    }
+
+    .btn i {
+        margin-right: 5px; /* Espaçamento entre o ícone e o texto */
+    }
+
+    h2.single-order-contents-title {
+        font-size: 16px;
+    }
+
+    .single-order {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .single-order:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+    }
 
     </style>
 
@@ -70,47 +84,45 @@
     @include('_message')
     </div>
 
-    <!-- Dashboard area Starts -->
-    <div class="body-overlay"></div>
-    <div class="dashboard-area section-bg-2 dashboard-padding">
-        <div class="container">
-
-            <div class="dashboard-contents-wrapper">
-                <div class="dashboard-icon">
-                    <div class="sidebar-icon">
-                        <i class="las la-bars"></i>
-                    </div>
+<!-- Dashboard area Starts -->
+<div class="body-overlay"></div>
+<div class="dashboard-area section-bg-2 dashboard-padding">
+    <div class="container">
+        <div class="dashboard-contents-wrapper">
+            <div class="dashboard-icon">
+                <div class="sidebar-icon">
+                    <i class="las la-bars"></i>
                 </div>
+            </div>
 
-                @include('admin.Partials.dash_user')
+            @include('admin.Partials.dash_user')
 
-                <!--------------------------->
-                <div class="dashboard-right-contents mt-4 mt-lg-0">
-                    <div class="dashboard-promo">
-                        <div class="row gy-4 justify-content-center">
+            <div class="dashboard-right-contents mt-4 mt-lg-0">
+                <div class="dashboard-promo">
+                    <div class="row gy-4 justify-content-center">
 
-                            <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                                <a href="{{ url('/dashboard/myreservations') }}" style="text-decoration: none;">
-                                <div class="single-order">
-                                    <div class="single-order-flex">
+                        <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
+                            <a href="{{ url('/dashboard/myreservations') }}" style="text-decoration: none;">
+                                <div class="single-order card">
+                                    <div class="single-order-flex card-body">
                                         <div class="single-order-contents">
-                                            <span class="single-order-contents-subtitle" style="padding: 13px;"> {{ __('backend/userSidebar.my_reserves') }} </span>
-                                            <h2 class="single-order-contents-title"> {{count($reserveQuery)}} </h2>
+                                            <span class="single-order-contents-subtitle"> {{ __('backend/sidebar.booking') }} </span>
+                                            <h2 class="single-order-contents-title"> {{ count($reserveQuery) }} </h2>
                                         </div>
                                         <div class="single-order-icon">
                                             <i class="las la-check-circle"></i>
                                         </div>
                                     </div>
                                 </div>
-                                </a>
-                            </div>
+                            </a>
+                        </div>
 
-                            <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                                <a href="{{ url('/dashboard/mycontacts') }}" style="text-decoration: none;">
-                                <div class="single-order">
-                                    <div class="single-order-flex">
+                        <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
+                            <a href="{{ url('/dashboard/mycontacts') }}" style="text-decoration: none;">
+                                <div class="single-order card">
+                                    <div class="single-order-flex card-body">
                                         <div class="single-order-contents">
-                                            <span class="single-order-contents-subtitle" style="padding: 13px;"> {{ __('backend/userSidebar.my_messages') }} &nbsp;&nbsp;&nbsp; </span>
+                                            <span class="single-order-contents-subtitle"> {{ __('backend/userSidebar.my_messages') }} </span>
                                             <h2 class="single-order-contents-title"> {{ count($contactQuery) }} </h2>
                                         </div>
                                         <div class="single-order-icon">
@@ -118,38 +130,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                </a>
-                            </div>
+                            </a>
+                        </div>
 
-                            <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
-                                <a href="#">
-                                <div class="single-order">
-                                    <div class="single-order-flex">
+                        <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
+                            <a href="#">
+                                <div class="single-order card">
+                                    <div class="single-order-flex card-body">
                                         <div class="single-order-contents">
-                                            <span class="single-order-contents-subtitle" style="padding: 13px;"> {{ __('backend/userSidebar.newsletter') }} &nbsp;&nbsp;&nbsp; </span>
-                                            @if (count($newsletterQuery) === 0)
-                                            <h2 style="font-size: 20px" class="single-order-contents-title">  {{ __('backend/userSidebar.sem_registo') }} </h2>
-                                            @else
-                                            <h2 style="font-size: 20px" class="single-order-contents-title"> {{ __('backend/userSidebar.com_registo') }} </h2>
-                                            @endif
-
+                                            <span class="single-order-contents-subtitle"> {{ __('backend/userSidebar.newsletter') }} </span>
+                                            <h2 class="single-order-contents-title">
+                                                @if (count($newsletterQuery) === 0)
+                                                    {{ __('backend/userSidebar.sem_registo') }}
+                                                @else
+                                                    {{ __('backend/userSidebar.com_registo') }}
+                                                @endif
+                                            </h2>
                                         </div>
                                         <div class="single-order-icon">
                                             <i class="las la-history"></i>
                                         </div>
                                     </div>
                                 </div>
-                                </a>
-                            </div>
-
+                            </a>
                         </div>
+
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
-    <!-- Dashboard area end -->
+</div>
+<!-- Dashboard area end -->
 
 
     <!-- footer area start -->
