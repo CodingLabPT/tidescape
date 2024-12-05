@@ -42,5 +42,5 @@ return [
     'tours'      => 'Tours',
     'reserves'   => 'Reservations',
     'newsteller' => 'Newsletter',
-    'users'      => 'All registered Users',
+    'users'      => 'Members',
 ];

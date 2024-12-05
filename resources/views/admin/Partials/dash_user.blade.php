@@ -41,7 +41,7 @@
                     <br>
                     <h6 class="dashboard-title" onclick="toggleLinksA()">
                         {{ __('backend/userSidebar.booking_management') }}
-                        <i class="fas fa-chevron-down arrow-icon"></i> <!-- Ícone de seta -->
+                        <i class="fas fa-chevron-up arrow-iconA"></i> <!-- Ícone de seta -->
                     </h6>
                     <div class="dashboard-linksA" style="display: block;">
                         @foreach ($linksA as $link)
@@ -57,7 +57,7 @@
                     <br>
                     <h6 class="dashboard-title" onclick="toggleLinksB()">
                         {{ __('backend/userSidebar.contacts') }}
-                        <i class="fas fa-chevron-down arrow-icon"></i> <!-- Ícone de seta -->
+                        <i class="fas fa-chevron-up arrow-iconB"></i> <!-- Ícone de seta -->
                     </h6>
                     <div class="dashboard-linksB" style="display: block;">
                         @foreach ($linksB as $link)
@@ -76,6 +76,7 @@
 </div>
 
 <style>
+
     .dashboard-list {
         list-style: none;
         padding: 0;
@@ -97,7 +98,7 @@
         cursor: pointer;
     }
 
-    .arrow-icon {
+    .arrow-iconA, .arrow-iconB {
         float: right; /* Empurra o ícone para a direita */
         transition: transform 0.3s; /* Transição suave para a rotação */
     }
@@ -115,6 +116,10 @@
         transition: background-color 0.3s, color 0.3s;
     }
 
+    .dashboard-linksB {
+        transition: all .5s;
+    }
+
     .dashboard-link:hover {
         background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
     }
@@ -129,19 +134,31 @@
 <script>
     function toggleLinksA() {
         const linksContainer = document.querySelector('.dashboard-linksA');
+        const arrowIcon = document.querySelector('.arrow-iconA');
+
         if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
             linksContainer.style.display = "block"; // Mostra os links
+            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
         } else {
             linksContainer.style.display = "none"; // Esconde os links
+            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
         }
     }
 
     function toggleLinksB() {
         const linksContainer = document.querySelector('.dashboard-linksB');
+        const arrowIcon = document.querySelector('.arrow-iconB');
+
         if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
             linksContainer.style.display = "block"; // Mostra os links
+            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
         } else {
             linksContainer.style.display = "none"; // Esconde os links
+            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
         }
     }
 </script>

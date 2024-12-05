@@ -3,18 +3,59 @@
 
 <head>
 
-<style>
-
-    .btn i {
-    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
-    }
-
-    @media only screen and (max-width: 1398.98px) {
-        div.breadcrumb-contents {
-            margin-top: -16px !important;
+    <style>
+        .user-stats-card {
+            text-align: center; /* Centraliza o texto */
         }
-    }
 
+        .user-stats-content {
+            position: relative; /* Para garantir que o conteúdo fique acima do fundo */
+            z-index: 1; /* Eleva o conteúdo acima do fundo */
+        }
+
+        .user-stats-subtitle, .user-stats-title {
+            font-size: 18px; /* Tamanho da fonte do subtítulo */
+            color: #fff; /* Cor do texto do subtítulo */
+            margin-bottom: 10px; /* Espaçamento abaixo do subtítulo */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), /* Sombra suave */
+                        0 0 15px rgba(0, 0, 0, 0.3); /* Efeito de brilho ao redor */
+        }
+
+        .user-stats-title {
+            font-size: 24px; /* Aumenta o tamanho da fonte para maior destaque */
+            color: #fff; /* Cor do texto do título */
+            margin-bottom: 10px; /* Espaçamento abaixo do título */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), /* Sombra mais pronunciada */
+                        0 0 20px rgba(0, 0, 0, 0.5); /* Efeito de brilho mais intenso */
+            font-weight: bold; /* Negrito para dar mais ênfase */
+            font-style: italic;
+        }
+
+        .btn i {
+        margin-right: 5px; /* Espaçamento entre o ícone e o texto */
+        }
+
+        @media only screen and (max-width: 1398.98px) {
+            div.breadcrumb-contents {
+                margin-top: -16px !important;
+            }
+        }
+
+        .single-order {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .single-order-icon {
+            font-size: 10px; /* Tamanho do ícone */
+            color: #007bff; /* Cor do ícone */
+            text-align: center; /* Centraliza o ícone */
+            margin: 10px; /* Margem ao redor do ícone */
+        }
+
+        .single-order:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
     </style>
 
     <meta charset="UTF-8">
@@ -91,63 +132,57 @@
                         <div class="row gy-4 justify-content-center">
                             <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
                                 <a href="{{ route('tours.show') }}" style="text-decoration: none;">
-                                <div class="single-order">
-                                    <div class="single-order-flex">
-                                        <div class="single-order-contents">
-                                            <span class="single-order-contents-subtitle" style="padding: 13px;"> {{ __('backend/Pages/configs.tours') }}  </span>
-                                            <h2 style="text-decoration: none;" class="single-order-contents-title"> {{ count($tours) }} </h2>
-                                        </div>
-                                        <div class="single-order-icon">
-                                            <i class="las la-history"></i>
+                                    <div class="single-order card user-stats-card">
+                                        <div class="user-stats-content">
+                                            <div class="single-order-icon">
+                                                <i class="las la-map"></i> <!-- Ícone de mapa -->
+                                            </div>
+                                            <span class="user-stats-subtitle">{{ __('backend/Pages/configs.tours') }}</span>
+                                            <h2 class="user-stats-title">{{ count($tours) }}</h2>
                                         </div>
                                     </div>
-                                </div>
                                 </a>
                             </div>
 
                             <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
                                 <a href="{{ route('reservations.show') }}" style="text-decoration: none;">
-                                <div class="single-order">
-                                    <div class="single-order-flex">
-                                        <div class="single-order-contents">
-                                            <span class="single-order-contents-subtitle" style="padding: 13px;"> {{ __('backend/Pages/configs.reserves') }} </span>
-                                            <h2 class="single-order-contents-title"> {{count($reserves)}} </h2>
-                                        </div>
-                                        <div class="single-order-icon">
-                                            <i class="las la-check-circle"></i>
+                                    <div class="single-order card user-stats-card">
+                                        <div class="user-stats-content">
+                                            <div class="single-order-icon">
+                                                <i class="las la-ticket-alt"></i> <!-- Ícone de bilhete -->
+                                            </div>
+                                            <span class="user-stats-subtitle">{{ __('backend/Pages/configs.reserves') }}</span>
+                                            <h2 class="user-stats-title">{{ count($reserves) }}</h2>
                                         </div>
                                     </div>
-                                </div>
                                 </a>
                             </div>
 
                             <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
                                 <a href="{{ route('newsletters.show') }}" style="text-decoration: none;">
-                                <div class="single-order">
-                                    <div class="single-order-flex">
-                                        <div class="single-order-contents">
-                                            <span class="single-order-contents-subtitle" style="padding: 13px;"> {{ __('backend/Pages/configs.newsteller') }} </span>
-                                            <h2 class="single-order-contents-title"> {{ count($newsletters) }} </h2>
-                                        </div>
-                                        <div class="single-order-icon">
-                                            <i class="las la-times-circle"></i>
+                                    <div class="single-order card user-stats-card">
+                                        <div class="user-stats-content">
+                                            <div class="single-order-icon">
+                                                <i class="las la-envelope"></i>
+                                            </div>
+                                            <span class="user-stats-subtitle">{{ __('backend/Pages/configs.newsteller') }}</span>
+                                            <h2 class="user-stats-title">{{ count($newsletters) }}</h2>
                                         </div>
                                     </div>
-                                </div>
                                 </a>
                             </div>
 
                             <div class="col-xxl-3 col-xl-4 col-sm-6 orders-child">
                                 <a href="{{ route('clients.show') }}" style="text-decoration: none;">
-                                <div class="single-order">
-                                    <div class="single-order-contents">
-                                        <span class="single-order-contents-subtitle"> {{ __('backend/Pages/configs.users') }} </span>
-                                        <h2 class="single-order-contents-title"> {{ count($users) }} </h2>
+                                    <div class="single-order card user-stats-card">
+                                        <div class="user-stats-content">
+                                            <div class="single-order-icon">
+                                                <i class="las la-user"></i>
+                                            </div>
+                                            <span class="user-stats-subtitle">{{ __('backend/Pages/configs.users') }}</span>
+                                            <h2 class="user-stats-title">{{ count($users) }}</h2>
+                                        </div>
                                     </div>
-                                    <div class="single-order-icon">
-                                        <i class="las la-clipboard-check"></i>
-                                    </div>
-                                </div>
                                 </a>
                             </div>
 

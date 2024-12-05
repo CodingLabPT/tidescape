@@ -99,7 +99,7 @@
                     <br>
                     <h6 class="dashboard-title" onclick="toggleLinksA()">
                         {{ __('backend/sidebar.Users') }}
-                        <i class="fas fa-chevron-down arrow-icon"></i> <!-- Ícone de seta -->
+                        <i class="fas fa-chevron-up arrow-iconA"></i> <!-- Ícone de seta -->
                     </h6>
                     <div class="dashboard-linksA" style="display: block;">
                         @foreach ($linksA  as $link)
@@ -116,7 +116,7 @@
 
                     <h6 class="dashboard-title" onclick="toggleLinksB()">
                         {{ __('backend/sidebar.Users') }}
-                        <i class="fas fa-chevron-down arrow-icon"></i> <!-- Ícone de seta -->
+                        <i class="fas fa-chevron-up arrow-iconB"></i> <!-- Ícone de seta -->
                     </h6>
                     <div class="dashboard-linksB" style="display: block;">
                         @foreach ($linksB as $link)
@@ -133,7 +133,7 @@
 
                     <h6 class="dashboard-title" onclick="toggleLinksC()">
                         {{ __('backend/sidebar.Tours2') }}
-                        <i class="fas fa-chevron-down arrow-icon"></i> <!-- Ícone de seta -->
+                        <i class="fas fa-chevron-up arrow-iconC"></i> <!-- Ícone de seta -->
                     </h6>
                     <div class="dashboard-linksC" style="display: block;">
                         @foreach ($linksC as $link)
@@ -150,7 +150,7 @@
 
                     <h6 class="dashboard-title" onclick="toggleLinksD()">
                         {{ __('backend/sidebar.Categories') }}
-                        <i class="fas fa-chevron-down arrow-icon"></i> <!-- Ícone de seta -->
+                        <i class="fas fa-chevron-down arrow-iconD"></i> <!-- Ícone de seta -->
                     </h6>
                     <div class="dashboard-linksD" style="display: none;">
                         @foreach ($linksD as $link)
@@ -190,7 +190,7 @@
         cursor: pointer;
     }
 
-    .arrow-icon {
+    .arrow-iconA, .arrow-iconB, .arrow-iconC, .arrow-iconD {
         float: right; /* Empurra o ícone para a direita */
         transition: transform 0.3s; /* Transição suave para a rotação */
     }
@@ -222,37 +222,61 @@
 <script>
     function toggleLinksA() {
         const linksContainer = document.querySelector('.dashboard-linksA');
+        const arrowIcon = document.querySelector('.arrow-iconA');
+
         if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
             linksContainer.style.display = "block"; // Mostra os links
+            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
         } else {
             linksContainer.style.display = "none"; // Esconde os links
+            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
         }
     }
 
     function toggleLinksB() {
         const linksContainer = document.querySelector('.dashboard-linksB');
+        const arrowIcon = document.querySelector('.arrow-iconB');
+
         if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
             linksContainer.style.display = "block"; // Mostra os links
+            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
         } else {
             linksContainer.style.display = "none"; // Esconde os links
+            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
         }
     }
 
     function toggleLinksC() {
         const linksContainer = document.querySelector('.dashboard-linksC');
+        const arrowIcon = document.querySelector('.arrow-iconC');
+
         if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
             linksContainer.style.display = "block"; // Mostra os links
+            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
         } else {
             linksContainer.style.display = "none"; // Esconde os links
+            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
         }
     }
 
     function toggleLinksD() {
         const linksContainer = document.querySelector('.dashboard-linksD');
+        const arrowIcon = document.querySelector('.arrow-iconD');
+
         if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
             linksContainer.style.display = "block"; // Mostra os links
+            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
         } else {
             linksContainer.style.display = "none"; // Esconde os links
+            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
+            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
         }
     }
 </script>
