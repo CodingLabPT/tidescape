@@ -12,7 +12,7 @@
 
                 @php
                 $actual_link = url()->current();
-                $links = [
+                $linksA = [
                     [
                         'route' => 'myreservations.show',
                         'icon' => 'fas fa-calendar-check',
@@ -24,24 +24,43 @@
                         'icon' => 'fas fa-calendar',
                         'label' => __('backend/sidebar.Calendar'),
                         'url' => url('/dashboard/mycalendary')
-                    ],
+                    ]
+                ];
+
+                $linksB = [
                     [
                         'route' => 'mycontacts.show',
                         'icon' => 'fas fa-comments',
                         'label' => __('backend/sidebar.Messages'),
                         'url' => url('/dashboard/mycontacts')
                     ]
-                ];
+                ]
                 @endphp
 
                 <li>
                     <br>
-                    <h6 class="dashboard-title" onclick="toggleLinks()">
-                        {{ __('backend/sidebar.Users') }}
+                    <h6 class="dashboard-title" onclick="toggleLinksA()">
+                        {{ __('backend/userSidebar.booking_management') }}
                         <i class="fas fa-chevron-down arrow-icon"></i> <!-- Ícone de seta -->
                     </h6>
-                    <div class="dashboard-links" style="display: block;">
-                        @foreach ($links as $link)
+                    <div class="dashboard-linksA" style="display: block;">
+                        @foreach ($linksA as $link)
+                            <h6>
+                                <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
+                                   href="{{ route($link['route']) }}">
+                                    <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
+                                </a>
+                            </h6>
+                        @endforeach
+                    </div>
+
+                    <br>
+                    <h6 class="dashboard-title" onclick="toggleLinksB()">
+                        {{ __('backend/userSidebar.contacts') }}
+                        <i class="fas fa-chevron-down arrow-icon"></i> <!-- Ícone de seta -->
+                    </h6>
+                    <div class="dashboard-linksB" style="display: block;">
+                        @foreach ($linksB as $link)
                             <h6>
                                 <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
                                    href="{{ route($link['route']) }}">
@@ -103,8 +122,17 @@
 </style>
 
 <script>
-    function toggleLinks() {
-        const linksContainer = document.querySelector('.dashboard-links');
+    function toggleLinksA() {
+        const linksContainer = document.querySelector('.dashboard-linksA');
+        if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
+            linksContainer.style.display = "block"; // Mostra os links
+        } else {
+            linksContainer.style.display = "none"; // Esconde os links
+        }
+    }
+
+    function toggleLinksB() {
+        const linksContainer = document.querySelector('.dashboard-linksB');
         if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
             linksContainer.style.display = "block"; // Mostra os links
         } else {
