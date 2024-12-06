@@ -196,7 +196,14 @@
                                                 <span class="single-reservation-content-id"> #{{ $reserveP->id }}  </span>
                                             </div>
                                             <div class="single-reservation-btn">
-                                                <a href="{{ route('reservations.details', $reserveP->id) }}" class="dash-btn btn-pending"> {{ $reserveP->status }} </a>
+                                                @if ($reserveP->status === 'Pendent')
+                                                    <a href="{{ route('reservations.details', $reserveP->id) }}" class="btn btn-danger"> {{ $reserveP->status }} </a>
+                                                @elseif ($reserveP->status === 'Waiting')
+                                                    <a href="{{ route('reservations.details', $reserveP->id) }}" class="btn btn-warning"> {{ $reserveP->status }} </a>
+                                                @else
+                                                    <a href="{{ route('reservations.details', $reserveP->id) }}" class="btn btn-success"> {{ $reserveP->status }} </a>
+                                                @endif
+
                                             </div>
                                         </div>
                                     </div>
