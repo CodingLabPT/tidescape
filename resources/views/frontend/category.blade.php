@@ -5,8 +5,31 @@
     <style>
         /* SIDEBAR
         */
+
+
+        input[type="number"] {
+            box-shadow: 0 4px 15px #e2e2e2;
+            outline: none; /* Remove o contorno padrão */
+        }
+
+
         .form-control {
             color: #8D8D8D !important;
+        }
+
+        small {
+            padding: 2px 10px; /* Aumenta o padding para mais espaço */
+            background: linear-gradient(135deg, #e2e2e2, #d1d1d1); /* Gradiente suave */
+            border-radius: 8px; /* Bordas mais arredondadas */
+            color: #333; /* Cor do texto mais escura para melhor legibilidade */
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
+            transition: background 0.3s ease, transform 0.3s ease; /* Transições suaves */
+        }
+
+        small:hover {
+            background: linear-gradient(135deg, #d1d1d1, #c0c0c0); /* Muda o gradiente ao passar o mouse */
+            transform: scale(1.05); /* Leve aumento ao passar o mouse */
         }
 
         .price-filter {
@@ -352,7 +375,6 @@
                                 </div>
                             </div>
 
-
                             <div class="single-shop-left bg-white radius-10 mt-4">
                                 <div class="single-shop-left-title open">
                                     <h5 class="title mb-4"> {{ __('category.duration') }} </h5>
@@ -460,7 +482,7 @@
                                     <h5 class="title mb-4"> {{ __('category.type_of_Boat') }} </h5>
                                     <div class="single-shop-left-inner margin-top-15">
                                         <label for="vessel" class="py-1 container">
-                                            <input id="vessel" name="vessel" value="eg" type='checkbox' onchange="this.form.submit()"
+                                            <input id="vessel" name="vessel" value="eg" type="checkbox" onchange="this.form.submit()"
                                                 @if (isset($_GET['vessel'])) checked @endif>
                                                 <div style="display: flex; align-items: center; justify-content: space-between">
                                                     <p>{{ __('category.big') }}</p>
