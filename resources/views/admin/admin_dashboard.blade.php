@@ -186,6 +186,124 @@
                                 </a>
                             </div>
 
+                            @foreach ($reservesP as $reserveP)
+                                <div class="single-reservation bg-white base-padding show open">
+                                    <div class="single-reservation-expandIcon"> <i class="las la-angle-down"></i> </div>
+                                    <div class="single-reservation-head">
+                                        <div class="single-reservation-flex">
+                                            <div class="single-reservation-content">
+                                                <h5 class="single-reservation-content-title"> {{ __('backend/Pages/reserves.reserve_detail') }}</h5>
+                                                <span class="single-reservation-content-id"> #{{ $reserveP->id }}  </span>
+                                            </div>
+                                            <div class="single-reservation-btn">
+                                                <a href="{{ route('reservations.details', $reserveP->id) }}" class="dash-btn btn-pending"> {{ $reserveP->status }} </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="single-reservation-inner" style="">
+                                        <div class="single-reservation-item">
+                                            <div class="single-reservation-name">
+                                                <h5 class="single-reservation-name-title"> {{ $reserveP->fn }} {{ $reserveP->ln }} </h5>
+                                                <p class="single-reservation-name-para"> {{ $reserveP->email }} </p>
+                                            </div>
+                                        </div>
+                                        <div class="single-reservation-item">
+                                            <div class="single-reservation-details">
+                                                <div class="single-reservation-details-item">
+                                                    <span class="single-reservation-details-subtitle"> {{ __('backend/Pages/reserves.day') }} </span>
+                                                    <h5 class="single-reservation-details-title"> {{ $reserveP->checkin }} </h5>
+                                                </div>
+                                                <div class="single-reservation-details-item">
+                                                    <span class="single-reservation-details-subtitle"> {{ __('backend/Pages/reserves.day') }} </span>
+                                                    <h5 class="single-reservation-details-title"> {{ $reserveP->horas }} </h5>
+                                                </div>
+                                                <div class="single-reservation-details-item">
+                                                    <span class="single-reservation-details-subtitle"> {{ __('backend/Pages/reserves.boat') }} </span>
+                                                    <h5 class="single-reservation-details-title"> {{ $reserveP->tipo_embarcacao }} </h5>
+                                                </div>
+                                                {{--
+                                                <div class="single-reservation-details-item">
+                                                    <span class="single-reservation-details-subtitle"> Booked </span>
+                                                    <h5 class="single-reservation-details-title"> 28 Jun 22 </h5>
+                                                </div>
+                                                 --}}
+                                            </div>
+                                        </div>
+                                        {{--
+                                        <div class="single-reservation-item">
+                                            <div class="single-reservation-flex">
+                                                <div class="single-reservation-content">
+                                                    <h5 class="single-reservation-content-title"> Total Bill </h5>
+                                                    <span class="single-reservation-content-price"> $250 </span>
+                                                </div>
+                                                <div class="single-reservation-logoPrice">
+                                                    <span class="single-reservation-logoPrice-thumb">
+                                                        <img src="assets/img/dashboard/mslogo.png" alt="img">
+                                                    </span>
+                                                    <span class="single-reservation-logoPrice-code"> ***9320 </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="single-reservation-item">
+                                            <div class="single-reservation-flex">
+                                                <div class="single-reservation-name">
+                                                    <h5 class="single-reservation-name-title"> Beyond Hotel </h5>
+                                                    <p class="single-reservation-name-para"> 4140 Parker Rd. Allentown, New Mexico 31134 </p>
+                                                </div>
+                                                <div class="single-reservation-btn">
+                                                    <a href="javascript:void(0)" class="dash-btn popup-click"> <i class="las la-exclamation-circle"></i> Cancel? </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        --}}
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            <div class="row mt-5">
+                                <div class="col">
+                                    <div class="pagination-wrapper">
+                                        <ul class="pagination-list list-style-none">
+                                            {{-- Link para a página anterior --}}
+                                            @if ($reservesP->onFirstPage())
+                                                <li class="pagination-list-item-prev disabled">
+                                                    <span class="pagination-list-item-button"> Prev </span>
+                                                </li>
+                                            @else
+                                                <li class="pagination-list-item-prev">
+                                                    <a href="{{ $reservesP->previousPageUrl() }}" class="pagination-list-item-button"> Prev </a>
+                                                </li>
+                                            @endif
+
+                                            {{-- Links para as páginas --}}
+                                            @foreach ($reservesP->getUrlRange(1, $reservesP->lastPage()) as $page => $url)
+                                                @if ($page == $reservesP->currentPage())
+                                                    <li class="pagination-list-item active">
+                                                        <span class="pagination-list-item-link">{{ $page }}</span>
+                                                    </li>
+                                                @else
+                                                    <li class="pagination-list-item">
+                                                        <a href="{{ $url }}" class="pagination-list-item-link">{{ $page }}</a>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+
+                                            {{-- Link para a próxima página --}}
+                                            @if ($reservesP->hasMorePages())
+                                                <li class="pagination-list-item-next">
+                                                    <a href="{{ $reservesP->nextPageUrl() }}" class="pagination-list-item-button"> Next </a>
+                                                </li>
+                                            @else
+                                                <li class="pagination-list-item-next disabled">
+                                                    <span class="pagination-list-item-button"> Next </span>
+                                                </li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

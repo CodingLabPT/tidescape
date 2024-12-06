@@ -16,12 +16,15 @@ use App\Models\User;
 class AdminController extends Controller
 {
     public function AdminDashboard() {
+
         $tours = Tour::all();
         $reserves = Reserve::all();
         $newsletters = Newsletter::all();
         $users = User::all();
 
-        return view('admin.admin_dashboard', compact('tours','reserves','newsletters','users'));
+        $reservesP = Reserve::paginate(4);
+
+        return view('admin.admin_dashboard', compact('tours','reserves','newsletters','users','reservesP'));
     }
 
     public function adminLogout(Request $request)
