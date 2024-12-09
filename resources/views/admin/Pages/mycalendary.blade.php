@@ -58,7 +58,7 @@
                     <div class="breadcrumb-contents">
                         <h4 class="breadcrumb-contents-title"> Dashboard </h4>
                         <ul class="breadcrumb-contents-list list-style-none">
-                            <li class="breadcrumb-contents-list-item"> <a href="{{ route('user.dashboard') }}" class="breadcrumb-contents-list-item-link"> Home </a> </li>
+                            <li class="breadcrumb-contents-list-item"> <a href="{{ route('admin.dashboard') }}" class="breadcrumb-contents-list-item-link"> Home </a> </li>
                             <li class="breadcrumb-contents-list-item"> {{ __('backend/Pages/calendar.title') }} </li>
                         </ul>
                     </div>
@@ -69,33 +69,33 @@
     </div>
     <!-- Breadcrumb area end -->
 
-    <!-- Dashboard area Starts -->
-    <div class="body-overlay"></div>
-    <div class="dashboard-area section-bg-2 dashboard-padding">
-        <div class="container">
-            <div class="dashboard-contents-wrapper">
-                <div class="dashboard-icon">
-                    <div class="sidebar-icon">
-                        <i class="las la-bars"></i>
-                    </div>
+<!-- Dashboard area Starts -->
+<div class="body-overlay"></div>
+<div class="dashboard-area section-bg-2 dashboard-padding">
+    <div class="container">
+        <div class="dashboard-contents-wrapper">
+            <div class="dashboard-icon">
+                <div class="sidebar-icon">
+                    <i class="las la-bars"></i>
                 </div>
-
-                @include('admin.Partials.dash_user')
-
-                <!--------------------------->
-                <div class="dashboard-right-contents mt-4 mt-lg-0">
-                    <div class="breadcrumb-contents">
-                        <p>{{ __('backend/Pages/calendar.title') }}</p>
-                    </div>
-                    <br>
-                    <div id="calendar"></div>
-                </div>
-                <!--------------------------->
             </div>
 
+            @include('admin.Partials.dash')
+
+            <!--------------------------->
+            <div class="dashboard-right-contents mt-4 mt-lg-0">
+                <div class="breadcrumb-contents">
+                    <p>{{ __('backend/Pages/calendar.title') }}</p>
+                </div>
+                <br>
+                <div id="calendar"></div>
+            </div>
+            <!--------------------------->
         </div>
+
     </div>
-    <!-- Dashboard area end -->
+</div>
+<!-- Dashboard area end -->
 
 
     <!-- footer area start -->
@@ -140,12 +140,26 @@
                     */
                 },
 
-                eventClick: function(event) {
-                    $('selector').css('cursor', 'pointer'); // 'default' to revert
-                    var id = event.title;
-                    $(location).prop('href', 'https://tidescape.pt/admin/dashboard/reservations/details/'+ id);
 
-                }
+
+                eventClick: function(event) {
+
+                    if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
+                    baseUrl = 'http://127.0.0.1:8000/dashboard/myreservations/details/';
+                    } else if (window.location.hostname === 'dev.tidescape.pt') {
+                    baseUrl = 'https://dev.tidescape.pt/dashboard/myreservations/details/';
+                    } else {
+                    baseUrl = 'https://tidescape.pt/dashboard/myreservations/details/';
+                    }
+
+                    var id = event.title; // Obtém o ID do evento
+                        var url = baseUrl + id; // Cria a URL
+
+                        $('selector').css('cursor', 'pointer'); // Define o cursor como pointer
+
+                        // Redireciona para a URL
+                        window.location.href = url;
+                    }
                 //editable: true,
                 //eventDrop: function(event)  {
                 //    console.log(event);

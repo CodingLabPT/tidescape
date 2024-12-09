@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/css/languageSelector.css') }}">
+
     <!-- Language selector Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/css/languageSelector.css') }}">
 </head>
@@ -68,37 +69,39 @@
     </div>
     <!-- Breadcrumb area end -->
 
-    <!-- Dashboard area Starts -->
-    <div class="body-overlay"></div>
-    <div class="dashboard-area section-bg-2 dashboard-padding">
-        <div class="container">
-            <div class="dashboard-contents-wrapper">
-                <div class="dashboard-icon">
-                    <div class="sidebar-icon">
-                        <i class="las la-bars"></i>
-                    </div>
+<!-- Dashboard area Starts -->
+<div class="body-overlay"></div>
+<div class="dashboard-area section-bg-2 dashboard-padding">
+    <div class="container">
+        <div class="dashboard-contents-wrapper">
+            <div class="dashboard-icon">
+                <div class="sidebar-icon">
+                    <i class="las la-bars"></i>
                 </div>
-
-                @include('admin.Partials.dash')
-
-                <!--------------------------->
-                <div class="dashboard-right-contents mt-4 mt-lg-0">
-                    <div class="breadcrumb-contents">
-                        <p>{{ __('backend/Pages/calendar.title') }}</p>
-                    </div>
-                    <br>
-                    <div id="calendar"></div>
-                </div>
-                <!--------------------------->
             </div>
 
+            @include('admin.Partials.dash')
+
+            <!--------------------------->
+            <div class="dashboard-right-contents mt-4 mt-lg-0">
+                <div class="breadcrumb-contents">
+                    <p>{{ __('backend/Pages/calendar.title') }}</p>
+                </div>
+                <br>
+                <div id="calendar"></div>
+            </div>
+            <!--------------------------->
         </div>
+
     </div>
-    <!-- Dashboard area end -->
+</div>
+<!-- Dashboard area end -->
+
 
     <!-- footer area start -->
     @include('components._footer')
     <!-- footer area end -->
+
 
     <!-- back to top area start -->
     <div class="back-to-top">
@@ -137,12 +140,26 @@
                     */
                 },
 
-                eventClick: function(event) {
-                    $('selector').css('cursor', 'pointer'); // 'default' to revert
-                    var id = event.title;
-                    $(location).prop('href', 'https://tidescape.pt/admin/dashboard/reservations/details/'+ id);
 
-                }
+
+                eventClick: function(event) {
+
+                    if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
+                    baseUrl = 'http://127.0.0.1:8000/reservations/details/';
+                    } else if (window.location.hostname === 'dev.tidescape.pt') {
+                    baseUrl = 'https://dev.tidescape.pt/reservations/details/';
+                    } else {
+                    baseUrl = 'https://tidescape.pt/reservations/details/';
+                    }
+
+                    var id = event.title; // Obtém o ID do evento
+                        var url = baseUrl + id; // Cria a URL
+
+                        $('selector').css('cursor', 'pointer'); // Define o cursor como pointer
+
+                        // Redireciona para a URL
+                        window.location.href = url;
+                    }
                 //editable: true,
                 //eventDrop: function(event)  {
                 //    console.log(event);
@@ -157,7 +174,8 @@
         });
 
     </script>
-    
+
+
     <!-- bootstrap -->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Wow Js -->
