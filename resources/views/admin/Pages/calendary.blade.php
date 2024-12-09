@@ -143,7 +143,7 @@
 
 
                 eventClick: function(event) {
-
+                    // Define a base da URL dependendo do ambiente
                     if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
                     baseUrl = 'http://127.0.0.1:8000/reservations/details/';
                     } else if (window.location.hostname === 'dev.tidescape.pt') {
