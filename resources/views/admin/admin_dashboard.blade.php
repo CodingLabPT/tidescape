@@ -187,7 +187,7 @@
                             </div>
 
                             @foreach ($reservesP as $reserveP)
-                                <div class="single-reservation bg-white base-padding show open">
+                                <div class="single-reservation bg-white base-padding">
                                     <div class="single-reservation-expandIcon"> <i class="las la-angle-down"></i> </div>
                                     <div class="single-reservation-head">
                                         <div class="single-reservation-flex">
