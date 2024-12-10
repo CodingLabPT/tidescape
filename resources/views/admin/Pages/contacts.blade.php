@@ -36,7 +36,7 @@
 
         /* Ocultar colunas específicas em telas menores */
         @media (max-width: 768px) {
-            #myTable th:nth-child(3), #myTable td:nth-child(3) { /* Coluna Status */
+            #myTable th:nth-child(3), #myTable td:nth-child(3), .span span { /* Coluna Status */
                 display: none;
             }
 
@@ -188,9 +188,9 @@
                                                 </span>
                                             @endif
                                         </td>
-                                        <td style="text-align:right">
-                                            <a title="{{ __('backend/Pages/messages.details') }}" class="btn btn-warning btn-sm" href="{{ route('allcontacts.details', $contact->id) }}"> <i class="fas fa-info-circle"></i>{{ __('backend/Pages/messages.details') }}</a>
-                                            <a title="{{ __('backend/Pages/messages.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="{{ route('allcontacts.destroy', $contact->id) }}"> <i class="fas fa-trash-alt"></i>{{ __('backend/Pages/messages.delete') }}</a>
+                                        <td class="span" style="text-align:right">
+                                            <a title="{{ __('backend/Pages/messages.details') }}" class="btn btn-warning btn-sm" href="{{ route('allcontacts.details', $contact->id) }}"> <i class="fas fa-info-circle"></i><span>{{ __('backend/Pages/messages.details') }}</span></a>
+                                            <a title="{{ __('backend/Pages/messages.delete') }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')" href="{{ route('allcontacts.destroy', $contact->id) }}"> <i class="fas fa-trash-alt"></i><span>{{ __('backend/Pages/messages.delete') }}</span></a>
                                         </td>
                                     </tr>
                                 @endforeach
