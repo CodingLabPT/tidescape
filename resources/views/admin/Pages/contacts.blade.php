@@ -36,9 +36,7 @@
 
         /* Ocultar colunas específicas em telas menores */
         @media (max-width: 768px) {
-            #myTable th:nth-child(4), #myTable td:nth-child(4), /* Coluna Boat */
-            #myTable th:nth-child(5), #myTable td:nth-child(5), /* Coluna Day */
-            #myTable th:nth-child(6), #myTable td:nth-child(6) { /* Coluna Status */
+            #myTable th:nth-child(3), #myTable td:nth-child(3) { /* Coluna Status */
                 display: none;
             }
 
@@ -163,7 +161,7 @@
                         </div>
                     @else
                     <div class="table-responsive">
-                        <table id="example" class="table table-striped" style="width:100%">
+                        <table id="myTable" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>{{ __('backend/Pages/messages.name') }}</th>
@@ -223,7 +221,7 @@
      <!-- back to top area end -->
 
     @include('components._scripts')
-    
+
     <!-- DataTables JS -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 

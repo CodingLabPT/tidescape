@@ -8,8 +8,7 @@
     /* Ocultar colunas específicas em telas menores */
 @media (max-width: 768px) {
     #example th:nth-child(3), #example td:nth-child(3), /* Coluna Phone */
-    #example th:nth-child(4), #example td:nth-child(4), /* Coluna Status */
-    #example th:nth-child(5), #example td:nth-child(5) { /* Coluna Avatar */
+    #example th:nth-child(4), #example td:nth-child(4) { /* Coluna Avatar */
         display: none;
     }
 

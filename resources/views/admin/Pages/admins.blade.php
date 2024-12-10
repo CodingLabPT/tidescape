@@ -5,48 +5,47 @@
 
     <style>
     .btn i {
-    margin-right: 5px; /* Espaçamento entre o ícone e o texto */
-}
+        margin-right: 5px; /* Espaçamento entre o ícone e o texto */
+    }
 
     /* Ocultar colunas específicas em telas menores */
-@media (max-width: 768px) {
-    #example th:nth-child(3), #example td:nth-child(3), /* Coluna Phone */
-    #example th:nth-child(4), #example td:nth-child(4), /* Coluna Status */
-    #example th:nth-child(5), #example td:nth-child(5) { /* Coluna Avatar */
-        display: none;
+    @media (max-width: 768px) {
+        
+        #example th:nth-child(3), #example td:nth-child(3), /* Coluna Phone */
+        #example th:nth-child(4), #example td:nth-child(4) { /* Coluna Avatar */
+            display: none;
+        }
+
+        /* Ajustar estilos das células restantes para melhor aparência */
+        #example th, #example td {
+            white-space: nowrap; /* Evitar quebra de linha em células */
+        }
+
+        /* Ajustar o estilo dos botões */
+        #example td a .btn {
+            padding: 0.25rem 0.5rem; /* Ajustar padding dos botões */
+            font-size: 0.875rem; /* Reduzir tamanho da fonte dos botões */
+        }
     }
 
-    /* Ajustar estilos das células restantes para melhor aparência */
+    /* Estilos adicionais para melhorar a experiência do usuário */
     #example th, #example td {
-        white-space: nowrap; /* Evitar quebra de linha em células */
+        vertical-align: middle; /* Alinhar verticalmente ao meio */
     }
 
-    /* Ajustar o estilo dos botões */
+    #example td div {
+        justify-content: center; /* Centralizar conteúdo do botão */
+    }
+
     #example td a .btn {
         padding: 0.25rem 0.5rem; /* Ajustar padding dos botões */
         font-size: 0.875rem; /* Reduzir tamanho da fonte dos botões */
     }
-}
-
-/* Estilos adicionais para melhorar a experiência do usuário */
-#example th, #example td {
-    vertical-align: middle; /* Alinhar verticalmente ao meio */
-}
-
-#example td div {
-    justify-content: center; /* Centralizar conteúdo do botão */
-}
-
-#example td a .btn {
-    padding: 0.25rem 0.5rem; /* Ajustar padding dos botões */
-    font-size: 0.875rem; /* Reduzir tamanho da fonte dos botões */
-}
 
 
-
-        .dt-length {
-            display: none;
-        }
+    .dt-length {
+        display: none;
+    }
     </style>
 
     <meta charset="UTF-8">

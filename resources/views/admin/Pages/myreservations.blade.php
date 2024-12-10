@@ -83,8 +83,7 @@
         /* Ocultar colunas específicas em telas menores */
 @media (max-width: 768px) {
     #example th:nth-child(3), #example td:nth-child(3), /* Coluna boat */
-    #example th:nth-child(4), #example td:nth-child(4), /* Coluna day */
-    #example th:nth-child(5), #example td:nth-child(5) { /* Coluna status */
+    #example th:nth-child(4), #example td:nth-child(4) { /* Coluna status */
         display: none;
     }
 
