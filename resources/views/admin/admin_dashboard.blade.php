@@ -192,6 +192,7 @@
                                     <div class="single-reservation-head">
                                         <div class="single-reservation-flex">
                                             <div class="single-reservation-content">
+                                                
                                                 <h5 class="single-reservation-content-title"> {{ __('backend/Pages/reserves.reserve_detail') }}</h5>
                                                 <span class="single-reservation-content-id"> #{{ $reserveP->id }}  </span>
                                             </div>
