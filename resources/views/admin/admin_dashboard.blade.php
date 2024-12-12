@@ -192,7 +192,6 @@
                                     <div class="single-reservation-head">
                                         <div class="single-reservation-flex">
                                             <div class="single-reservation-content">
-                                                
                                                 <h5 class="single-reservation-content-title"> {{ __('backend/Pages/reserves.reserve_detail') }}</h5>
                                                 <span class="single-reservation-content-id"> #{{ $reserveP->id }}  </span>
                                             </div>
@@ -204,7 +203,6 @@
                                                 @else
                                                     <a href="{{ route('reservations.details', $reserveP->id) }}" class="btn btn-success"> {{ $reserveP->status }} </a>
                                                 @endif
-
                                             </div>
                                         </div>
                                     </div>
@@ -234,7 +232,7 @@
                                                     <span class="single-reservation-details-subtitle"> Booked </span>
                                                     <h5 class="single-reservation-details-title"> 28 Jun 22 </h5>
                                                 </div>
-                                                 --}}
+                                                --}}
                                             </div>
                                         </div>
                                         {{--

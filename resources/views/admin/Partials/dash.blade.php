@@ -4,7 +4,7 @@
         <div class="dashboard-bottom">
             <ul class="dashboard-list list-style-none">
                 <li class="list active">
-                    <a class="dashboard-link" href="/admin/dashboard">
+                    <a class="dashboard-link" style="margin: 0" href="/admin/dashboard">
                         <i class="fas fa-tachometer-alt"></i> Dashboard
                     </a>
                 </li>
@@ -96,9 +96,27 @@
                 @endphp
 
                 <li>
-                    <br>
+                    <p></p>
+                    <div style="border-left: 4px solid #FF8C32; padding: 15px; position: relative; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;" class="single-reservation open">
+                        <h5 class="single-reservation-content-title" style="text-align: left; font-weight: 100; font-size: 17px;"> {{ __('backend/sidebar.booking_management') }} </h5>
+                        <div class="single-reservation-expandIcon" style="position: absolute; top: 15px; right: 0;"> <i class="las la-angle-down"></i> </div>
+
+                        <div class="single-reservation-inner" style="margin-top: 0px; border:none; display:block">
+                            @foreach ($linksA as $link)
+                                <h6>
+                                    <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
+                                    href="{{ route($link['route']) }}">
+                                        <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
+                                    </a>
+                                </h6>
+                            @endforeach
+                        </div>
+                    </div>
+
+
+                    {{--
                     <h6 class="dashboard-title" onclick="toggleLinksA()">
-                        {{ __('backend/sidebar.Users') }}
+                        {{ __('backend/sidebar.booking_management') }}
                         <i class="fas fa-chevron-up arrow-iconA"></i> <!-- Ícone de seta -->
                     </h6>
                     <div class="dashboard-linksA" style="display: block;">
@@ -111,57 +129,57 @@
                             </h6>
                         @endforeach
                     </div>
+                     --}}
 
-                    <br>
 
-                    <h6 class="dashboard-title" onclick="toggleLinksB()">
-                        {{ __('backend/sidebar.Users') }}
-                        <i class="fas fa-chevron-up arrow-iconB"></i> <!-- Ícone de seta -->
-                    </h6>
-                    <div class="dashboard-linksB" style="display: block;">
-                        @foreach ($linksB as $link)
-                            <h6>
-                                <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
-                                   href="{{ route($link['route']) }}">
-                                    <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
-                                </a>
-                            </h6>
-                        @endforeach
+                    <div style="border-left: 4px solid #FF8C32; padding: 15px; position: relative; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;" class="single-reservation open">
+                        <h5 class="single-reservation-content-title" style="text-align: left; font-weight: 100; font-size: 17px;"> {{ __('backend/sidebar.Users') }} </h5>
+                        <div class="single-reservation-expandIcon" style="position: absolute; top: 15px; right: 0;"> <i class="las la-angle-down"></i> </div>
+
+                        <div class="single-reservation-inner" style="margin-top: 0px; border:none; display:block">
+                            @foreach ($linksB as $link)
+                                <h6>
+                                    <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
+                                    href="{{ route($link['route']) }}">
+                                        <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
+                                    </a>
+                                </h6>
+                            @endforeach
+                        </div>
                     </div>
 
-                    <br>
+                    <div style="border-left: 4px solid #FF8C32; padding: 15px; position: relative; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;" class="single-reservation open">
+                        <h5 class="single-reservation-content-title" style="text-align: left; font-weight: 100; font-size: 17px;"> {{ __('backend/sidebar.Tours2') }} </h5>
+                        <div class="single-reservation-expandIcon" style="position: absolute; top: 15px; right: 0;"> <i class="las la-angle-down"></i> </div>
 
-                    <h6 class="dashboard-title" onclick="toggleLinksC()">
-                        {{ __('backend/sidebar.Tours2') }}
-                        <i class="fas fa-chevron-up arrow-iconC"></i> <!-- Ícone de seta -->
-                    </h6>
-                    <div class="dashboard-linksC" style="display: block;">
-                        @foreach ($linksC as $link)
-                            <h6>
-                                <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
-                                   href="{{ route($link['route']) }}">
-                                    <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
-                                </a>
-                            </h6>
-                        @endforeach
+                        <div class="single-reservation-inner" style="margin-top: 0px; border:none; display:block">
+                            @foreach ($linksC as $link)
+                                <h6>
+                                    <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
+                                    href="{{ route($link['route']) }}">
+                                        <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
+                                    </a>
+                                </h6>
+                            @endforeach
+                        </div>
                     </div>
 
-                    <br>
+                    <div style="border-left: 4px solid #FF8C32; padding: 15px; position: relative; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;" class="single-reservation open">
+                        <h5 class="single-reservation-content-title" style="text-align: left; font-weight: 100; font-size: 17px;"> {{ __('backend/sidebar.Categories') }} </h5>
+                        <div class="single-reservation-expandIcon" style="position: absolute; top: 15px; right: 0;"> <i class="las la-angle-down"></i> </div>
 
-                    <h6 class="dashboard-title" onclick="toggleLinksD()">
-                        {{ __('backend/sidebar.Categories') }}
-                        <i class="fas fa-chevron-down arrow-iconD"></i> <!-- Ícone de seta -->
-                    </h6>
-                    <div class="dashboard-linksD" style="display: none;">
-                        @foreach ($linksD as $link)
-                            <h6>
-                                <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
-                                   href="{{ route($link['route']) }}">
-                                    <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
-                                </a>
-                            </h6>
-                        @endforeach
+                        <div class="single-reservation-inner" style="margin-top: 0px; border:none; display:block">
+                            @foreach ($linksD as $link)
+                                <h6>
+                                    <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
+                                    href="{{ route($link['route']) }}">
+                                        <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
+                                    </a>
+                                </h6>
+                            @endforeach
+                        </div>
                     </div>
+
                 </li>
             </ul>
         </div>
@@ -218,65 +236,3 @@
         /*background-color: #e0e0ff; /* Cor de fundo para o link ativo */
     }
 </style>
-
-<script>
-    function toggleLinksA() {
-        const linksContainer = document.querySelector('.dashboard-linksA');
-        const arrowIcon = document.querySelector('.arrow-iconA');
-
-        if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
-            linksContainer.style.display = "block"; // Mostra os links
-            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
-            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
-        } else {
-            linksContainer.style.display = "none"; // Esconde os links
-            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
-            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
-        }
-    }
-
-    function toggleLinksB() {
-        const linksContainer = document.querySelector('.dashboard-linksB');
-        const arrowIcon = document.querySelector('.arrow-iconB');
-
-        if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
-            linksContainer.style.display = "block"; // Mostra os links
-            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
-            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
-        } else {
-            linksContainer.style.display = "none"; // Esconde os links
-            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
-            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
-        }
-    }
-
-    function toggleLinksC() {
-        const linksContainer = document.querySelector('.dashboard-linksC');
-        const arrowIcon = document.querySelector('.arrow-iconC');
-
-        if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
-            linksContainer.style.display = "block"; // Mostra os links
-            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
-            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
-        } else {
-            linksContainer.style.display = "none"; // Esconde os links
-            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
-            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
-        }
-    }
-
-    function toggleLinksD() {
-        const linksContainer = document.querySelector('.dashboard-linksD');
-        const arrowIcon = document.querySelector('.arrow-iconD');
-
-        if (linksContainer.style.display === "none" || linksContainer.style.display === "") {
-            linksContainer.style.display = "block"; // Mostra os links
-            arrowIcon.classList.add('fa-chevron-up'); // Remove a seta para baixo
-            arrowIcon.classList.remove('fa-chevron-down'); // Adiciona a seta para cima
-        } else {
-            linksContainer.style.display = "none"; // Esconde os links
-            arrowIcon.classList.remove('fa-chevron-up'); // Remove a seta para baixo
-            arrowIcon.classList.add('fa-chevron-down'); // Adiciona a seta para cima
-        }
-    }
-</script>

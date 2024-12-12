@@ -4,7 +4,7 @@
         <div class="dashboard-bottom">
             <ul class="dashboard-list list-style-none">
                 <li class="list active">
-                    <a class="dashboard-link" href="/dashboard">
+                    <a class="dashboard-link" style="margin: 0" href="/dashboard">
                         <i class="fas fa-tachometer-alt"></i> User Dashboard
                     </a>
                 </li>
@@ -38,37 +38,39 @@
                 @endphp
 
                 <li>
-                    <br>
-                    <h6 class="dashboard-title" onclick="toggleLinksA()">
-                        {{ __('backend/userSidebar.booking_management') }}
-                        <i class="fas fa-chevron-up arrow-iconA"></i> <!-- Ícone de seta -->
-                    </h6>
-                    <div class="dashboard-linksA" style="display: block;">
-                        @foreach ($linksA as $link)
-                            <h6>
-                                <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
-                                   href="{{ route($link['route']) }}">
-                                    <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
-                                </a>
-                            </h6>
-                        @endforeach
+                    <p></p>
+                    <div style="border-left: 4px solid #FF8C32; padding: 15px; position: relative; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;" class="single-reservation open">
+                        <h5 class="single-reservation-content-title" style="text-align: left; font-weight: 100; font-size: 17px;"> {{ __('backend/sidebar.booking_management') }} </h5>
+                        <div class="single-reservation-expandIcon" style="position: absolute; top: 15px; right: 0;"> <i class="las la-angle-down"></i> </div>
+
+                        <div class="single-reservation-inner" style="margin-top: 0px; border:none; display:block">
+                            @foreach ($linksA as $link)
+                                <h6>
+                                    <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
+                                    href="{{ route($link['route']) }}">
+                                        <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
+                                    </a>
+                                </h6>
+                            @endforeach
+                        </div>
                     </div>
 
-                    <br>
-                    <h6 class="dashboard-title" onclick="toggleLinksB()">
-                        {{ __('backend/userSidebar.contacts') }}
-                        <i class="fas fa-chevron-up arrow-iconB"></i> <!-- Ícone de seta -->
-                    </h6>
-                    <div class="dashboard-linksB" style="display: block;">
-                        @foreach ($linksB as $link)
-                            <h6>
-                                <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
-                                   href="{{ route($link['route']) }}">
-                                    <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
-                                </a>
-                            </h6>
-                        @endforeach
+                    <div style="border-left: 4px solid #FF8C32; padding: 15px; position: relative; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); cursor: pointer;" class="single-reservation open">
+                        <h5 class="single-reservation-content-title" style="text-align: left; font-weight: 100; font-size: 17px;"> {{ __('backend/sidebar.Messages') }} </h5>
+                        <div class="single-reservation-expandIcon" style="position: absolute; top: 15px; right: 0;"> <i class="las la-angle-down"></i> </div>
+
+                        <div class="single-reservation-inner" style="margin-top: 0px; border:none; display:block">
+                            @foreach ($linksB as $link)
+                                <h6>
+                                    <a class="dashboard-link {{ $actual_link === $link['url'] ? 'active' : '' }}"
+                                    href="{{ route($link['route']) }}">
+                                        <i class="{{ $link['icon'] }}"></i> {{ $link['label'] }}
+                                    </a>
+                                </h6>
+                            @endforeach
+                        </div>
                     </div>
+
                 </li>
             </ul>
         </div>
