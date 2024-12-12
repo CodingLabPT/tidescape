@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'title' => 'Tours Próximos',
+    'title' => 'Passeios de barco',
     'since' => 'Desde',
     'book_now' => 'Reservar Agora',
-    'no_tours' => 'Sem tours até ao momento!',
+    'no_tours' => 'Sem nenhum passeio de barco de momento!',
 ];
