@@ -23,7 +23,6 @@
                                             </option>
                                         @endif
 
-
                                         @foreach ($locals as $item)
                                             <option value="{{ $item->name }}" {{ isset($_GET['local']) && isset($_GET['local']) === $item->name ? 'selected' : '' }}>
                                                 {{ $item->name }}
